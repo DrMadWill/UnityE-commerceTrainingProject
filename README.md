@@ -6,14 +6,14 @@ Database Diagram is being prepared.
 ***
 
 | Git Profil | Branch| 
-|--|--|--|
+|--|--|
 | [Mina](https://github.com/Minayaff) | mina-elder |
 | [Nofəl](https://github.com/DrMadWill) | nofel-full-stack |
 
 ### Back-End Team
 ***
 | Git Profil | Branch| 
-|--|--|--|
+|--|--|
 | [Emin](https://github.com/EminElekberov) | emin-back-end |
 | [İlham](https://github.com/IlhamBinyetov) | ilham-back-end |  
 | [Xəyal](https://github.com/khayalsv) | khayal-back-end |  
