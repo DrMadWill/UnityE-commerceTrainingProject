@@ -12,7 +12,6 @@ Database Diagram is being prepared.
 
 ### Back-End Team
 ***
-
 | Git Profil | Branch| 
 |--|--|--|
 | [Emin](https://github.com/EminElekberov) | emin-back-end |
