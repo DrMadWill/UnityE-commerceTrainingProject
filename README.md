@@ -9,6 +9,7 @@ Database Diagram is being prepared.
 |--|--|
 | [Mina](https://github.com/Minayaff) | mina-elder |
 | [Nofəl](https://github.com/DrMadWill) | nofel-full-stack |
+| [Jeyhun](https://github.com/jeyhunr) | - |
 
 ### Back-End Team
 ***
