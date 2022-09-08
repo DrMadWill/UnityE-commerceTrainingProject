@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UnityETP.Entity.Products
+namespace UnityETP.Entity.Contacts
 {
-    public class Tag : BaseEntity<int>
+    public class Region : BaseEntity<int>
     {
         [Key]
         [Column]

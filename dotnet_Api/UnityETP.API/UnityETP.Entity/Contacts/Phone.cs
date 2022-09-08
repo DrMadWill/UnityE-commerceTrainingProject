@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UnityETP.Entity.Products
+namespace UnityETP.Entity.Contacts
 {
-    public class Tag : BaseEntity<int>
+    public class Phone : BaseEntity<int>
     {
         [Key]
         [Column]
@@ -12,5 +12,8 @@ namespace UnityETP.Entity.Products
 
         [Required]
         [Column] public string Name { get; set; }
+
+        [Column] public string Number { get; set; }
+        public int ContactId { get; set; }
     }
 }
