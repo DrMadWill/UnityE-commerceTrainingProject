@@ -14,8 +14,8 @@ namespace UnityETP.Entity.Products
         [Column] public string Name { get; set; }
 
         [Column] public string Image { get; set; }
-        [Column] public float CurrentPrice { get; set; }
-        [Column] public float? OldPrice { get; set; }
+        [Column] public decimal CurrentPrice { get; set; }
+        [Column] public decimal? OldPrice { get; set; }
         [Column(TypeName = "tinyint")] public byte Star { get; set; }
         [Column] public string MiniDescription { get; set; }
         [Column] public bool IsEnded { get; set; }
