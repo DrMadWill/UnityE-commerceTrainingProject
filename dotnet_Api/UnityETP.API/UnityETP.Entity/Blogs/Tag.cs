@@ -3,6 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Blogs
 {
+    /// <summary>
+    /// Blog Tags Table 
+    /// </summary>
+
+    [Table("BlogTags")]
     public class Tag : BaseEntity<int>
     {
         [Key]
@@ -12,5 +17,7 @@ namespace UnityETP.Entity.Blogs
 
         [Required]
         [Column] public string Name { get; set; }
+        // Relation 
+        public IList<BlogToTag> BlogToTags { get; set; }
     }
 }

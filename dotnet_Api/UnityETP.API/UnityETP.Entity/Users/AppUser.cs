@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Blogs;
 
 namespace UnityETP.Entity.Users
 {
@@ -15,5 +16,9 @@ namespace UnityETP.Entity.Users
         [Column] public DateTime? UpdateAt { get; set; }
         [Column] public bool IsBlock { get; set; } = false;
         [Column] public bool IsDelete { get; set; } = false;
+
+        public IList<Blog> Blogs { get; set; }
+        public IList<Comment> Comments { get; set; }
+
     }
 }
