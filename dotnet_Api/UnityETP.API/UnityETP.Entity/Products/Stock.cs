@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Orders;
 
 namespace UnityETP.Entity.Products
 {
@@ -14,7 +15,10 @@ namespace UnityETP.Entity.Products
         [Column] public bool IsEnd { get; set; }
         [Column] public string SKU { get; set; }
 
+        public Prodcut Prodcut { get; set; }
         public int PorductId { get; set; }
         public int ProductSizeId { get; set; }
+
+        public IList<StockToOrder> StockToOrders { get; set; }
     }
 }

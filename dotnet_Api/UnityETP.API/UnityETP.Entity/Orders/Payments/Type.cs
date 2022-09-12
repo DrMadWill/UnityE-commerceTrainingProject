@@ -1,8 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Commons;
 
 namespace UnityETP.Entity.Orders.Payments
 {
+    /// <summary>
+    /// Payment Type
+    /// </summary>
+    [Table("PaymentTypes")]
     public class Type : BaseEntity<int>
     {
         [Key]
@@ -12,7 +17,9 @@ namespace UnityETP.Entity.Orders.Payments
 
         [Column] public string Name { get; set; }
         [Column] public string Icon { get; set; }
-
+        // Relation
+        public Color Color { get; set; }
         public int ColorId { get; set; }
+        public IList<Payment> Payments { get; set; }
     }
 }

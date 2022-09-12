@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Options
 {
+    /// <summary>
+    /// Option in Admin Panel Nav
+    /// </summary>
+    [Table("Options")]
     public class Option : BaseEntity<int>
     {
         [Key]
@@ -11,6 +15,13 @@ namespace UnityETP.Entity.Options
         public override int Id { get; set; }
 
         [Column] public string Name { get; set; }
-        [Column] public string Link { get; set; }
+
+        [Required]
+        [Column] public string Controller { get; set; }
+
+        [Required]
+        [Column] public string Action { get; set; }
+        // Relation
+        public IList<Item> Items { get; set; }
     }
 }

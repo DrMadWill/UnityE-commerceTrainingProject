@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Commons
 {
+    /// <summary>
+    /// Slider In Index
+    /// </summary>
+    [Table("Sliders")]
     public class Slider : BaseEntity<int>
     {
         [Key]

@@ -3,7 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Orders
 {
-    public class Shiping : BaseEntity<int>
+    /// <summary>
+    /// Shippings 
+    /// </summary>
+    [Table("Shippings")]
+    public class Shipping : BaseEntity<int>
     {
         [Key]
         [Column]
@@ -18,5 +22,7 @@ namespace UnityETP.Entity.Orders
 
         [NotMapped]
         public bool IsEnd { get => ArriveDate != null; }
+        // Relation
+        public IList<Detail> OrderDetails { get; set; }
     }
 }

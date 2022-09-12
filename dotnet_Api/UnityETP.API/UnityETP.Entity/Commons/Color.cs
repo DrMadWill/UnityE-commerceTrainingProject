@@ -1,8 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Orders;
 
 namespace UnityETP.Entity.Commons
 {
+    /// <summary>
+    /// Color
+    /// </summary>
+    [Table("Colors")]
     public class Color : BaseEntity<int>
     {
         [Key]
@@ -16,5 +21,9 @@ namespace UnityETP.Entity.Commons
         [Required]
         [StringLength(maximumLength: 7, MinimumLength = 7)]
         [Column(TypeName = "char(7)")] public string Code { get; set; }
+        // Relation 
+        public IList<Icon> Icons { get; set; }
+        public IList<Status> Statuses { get; set; }
+        public IList<Orders.Payments.Type> Types { get; set; }
     }
 }

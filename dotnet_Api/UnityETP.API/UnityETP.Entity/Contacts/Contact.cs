@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Orders;
 
 namespace UnityETP.Entity.Contacts
 {
     /// <summary>
     /// Contact Info  
     /// </summary>
-    [Table("Cities")]
+    [Table("Contacts")]
     public class Contact : BaseEntity<int>
     {
         [Key]
@@ -18,6 +19,7 @@ namespace UnityETP.Entity.Contacts
         // Relation 
         public Address Address { get; set; }
         public int AddressId { get; set; }
-
+        public IList<OnlineAddress> OnlineAddresses { get; set; }
+        public IList<Detail> OrderDetails { get; set; }
     }
 }
