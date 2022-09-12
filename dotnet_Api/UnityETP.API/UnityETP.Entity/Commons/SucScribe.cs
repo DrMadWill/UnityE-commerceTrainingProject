@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Commons
 {
+    /// <summary>
+    /// SucScribes For Not Registered.
+    /// </summary>
+    [Table("SucScribes")]
     public class SucScribe : BaseEntity<int>
     {
         [Key]

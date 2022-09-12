@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Users;
 
 namespace UnityETP.Entity.Blogs
 {
@@ -14,9 +15,13 @@ namespace UnityETP.Entity.Blogs
 
         [Column] public bool IsBlocked { get; set; }
         [Column] public bool IsHasChild { get; set; }
-
+        // Relation 
+        public Blog Blog { get; set; }
         public int BlogId { get; set; }
+
+        public Comment ParentComment { get; set; }
         public int ParentCommentId { get; set; }
+        public AppUser User { get; set; }
         public string UserId { get; set; }
     }
 }

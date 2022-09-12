@@ -12,5 +12,7 @@ namespace UnityETP.Entity.Blogs
 
         [Required]
         [Column] public string Name { get; set; }
+
+        public IList<Blog> Blogs { get; set; }
     }
 }

@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Contacts
 {
+    /// <summary>
+    /// Address => Country 
+    /// </summary>
+    [Table("Countries")]
     public class Country : BaseEntity<int>
     {
         [Key]
@@ -12,5 +16,7 @@ namespace UnityETP.Entity.Contacts
 
         [Required]
         [Column] public string Name { get; set; }
+        // Relation 
+        public IList<Address> Addresses { get; set; }
     }
 }
