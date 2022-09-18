@@ -2,9 +2,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Orders;
+using UnityETP.Entity.Products;
 
 namespace UnityETP.Entity.Users
 {
+    /// <summary>
+    /// Application Users Table
+    /// </summary>
     public class AppUser : IdentityUser, IBaseEntity<string>
     {
         [Column] public string Name { get; set; }
@@ -18,9 +22,15 @@ namespace UnityETP.Entity.Users
         [Column] public DateTime? UpdateAt { get; set; }
         [Column] public bool IsBlock { get; set; } = false;
         [Column] public bool IsDelete { get; set; } = false;
-
+        
+        // Relation
+        public Status UserStatus { get; set; }
+        public int UserStatusId { get; set; }
         public IList<Blog> Blogs { get; set; }
         public IList<Comment> Comments { get; set; }
         public IList<Order> Orders { get; set; }
+        public IList<Review> Reviews { get; set; }
+        public IList<ProductCreatingLog> ProductCreatingLogs { get; set; }
+
     }
 }

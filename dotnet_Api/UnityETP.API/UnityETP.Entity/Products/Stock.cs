@@ -4,6 +4,10 @@ using UnityETP.Entity.Orders;
 
 namespace UnityETP.Entity.Products
 {
+    /// <summary>
+    /// Product Stocks Table
+    /// </summary>
+    [Table("ProductStocks")]
     public class Stock : BaseEntity<int>
     {
         [Key]
@@ -17,6 +21,8 @@ namespace UnityETP.Entity.Products
 
         public Prodcut Prodcut { get; set; }
         public int PorductId { get; set; }
+
+        public Size ProductSize { get; set; }
         public int ProductSizeId { get; set; }
 
         public IList<StockToOrder> StockToOrders { get; set; }

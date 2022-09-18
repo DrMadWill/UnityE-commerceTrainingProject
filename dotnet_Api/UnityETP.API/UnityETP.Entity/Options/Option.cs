@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Users;
 
 namespace UnityETP.Entity.Options
 {
@@ -23,5 +24,7 @@ namespace UnityETP.Entity.Options
         [Column] public string Action { get; set; }
         // Relation
         public IList<Item> Items { get; set; }
+
+        public IList<Authorization> Authorizations { get; set; }
     }
 }

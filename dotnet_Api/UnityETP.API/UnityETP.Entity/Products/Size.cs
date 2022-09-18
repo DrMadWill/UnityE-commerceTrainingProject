@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Products
 {
+    /// <summary>
+    /// Product Sizes Table
+    /// </summary>
+    [Table("ProductSizes")]
     public class Size : BaseEntity<int>
     {
         [Key]

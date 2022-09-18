@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Organizations
 {
+    /// <summary>
+    /// Statuses Type
+    /// </summary>
+    [Table("OrganizationStatuses")]
     public class Status : BaseEntity<int>
     {
         [Key]
@@ -12,7 +16,9 @@ namespace UnityETP.Entity.Organizations
 
         [Required]
         [Column] public string Name { get; set; }
-
+        // Relation
         public int ColorId { get; set; }
+
+        public IList<Organization> Organizations { get; set; }
     }
 }

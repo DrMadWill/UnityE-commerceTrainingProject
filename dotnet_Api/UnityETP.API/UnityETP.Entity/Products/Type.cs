@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Products
 {
+    /// <summary>
+    /// Product Types Table
+    /// </summary>
+    [Table("ProductTypes")]
     public class Type : BaseEntity<int>
     {
         [Key]
@@ -12,5 +16,7 @@ namespace UnityETP.Entity.Products
 
         [Required]
         [Column] public string Name { get; set; }
+
+        public IList<Prodcut> Prodcuts { get; set; }
     }
 }
