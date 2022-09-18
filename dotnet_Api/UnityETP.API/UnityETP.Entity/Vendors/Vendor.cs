@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Commons;
 using UnityETP.Entity.Organizations;
 using UnityETP.Entity.Products;
 
@@ -14,6 +15,7 @@ namespace UnityETP.Entity.Vendors
         [Column] public byte Star { get; set; }
 
         // Relation
+        public Color Color { get; set; }
         public int ColorId { get; set; }
         public IList<Prodcut> Prodcuts { get; set; }
         public Organization Organization { get; set; }

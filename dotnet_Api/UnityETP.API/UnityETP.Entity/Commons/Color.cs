@@ -26,10 +26,10 @@ namespace UnityETP.Entity.Commons
         public IList<Orders.Status> OrderStatuses { get; set; }
         public IList<Organizations.Status> OrganizationStatuses { get; set; }
         public IList<Products.Status> ProductStatuses { get; set; }
+        public IList<Users.Status> UserStatuses { get; set; }
 
         public IList<Icon> Icons { get; set; }
         public IList<Orders.Payments.Type> Types { get; set; }
-
         public IList<Brand> Brands { get; set; }
     }
 }
