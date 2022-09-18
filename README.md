@@ -7,7 +7,6 @@ Database Diagram is being prepared.
 
 | Git Profil | Branch| 
 |--|--|
-| [Mina](https://github.com/Minayaff) | mina-elder |
 | [Nofəl](https://github.com/DrMadWill) | nofel-full-stack |
 | [Jeyhun](https://github.com/jeyhunr) | - |
 
@@ -15,8 +14,6 @@ Database Diagram is being prepared.
 ***
 | Git Profil | Branch| 
 |--|--|
-| [Emin](https://github.com/EminElekberov) | emin-back-end |
 | [İlham](https://github.com/IlhamBinyetov) | ilham-back-end |  
 | [Xəyal](https://github.com/khayalsv) | khayal-back-end |  
-| [Fuad](https://github.com/fuadmuradov) | fuad-back-end |  
 | [Nofəl](https://github.com/DrMadWill) | nofel-full-stack |
