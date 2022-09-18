@@ -1,8 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Vendors;
 
 namespace UnityETP.Entity.Organizations
 {
+    /// <summary>
+    /// Organization Type
+    /// </summary>
+    [Table("Organizations")]
     public class Organization : BaseEntity<int>
     {
         [Key]
@@ -12,10 +18,17 @@ namespace UnityETP.Entity.Organizations
 
         [Column] public string Name { get; set; }
         [Column] public string Description { get; set; }
-        [Column] public string Tel { get; set; }
+        [Column] public string HotTel { get; set; }
         [Column] public string Image { get; set; }
 
-        public int VendorStatusId { get; set; }
+        // Relation
+
+        public Status Status { get; set; }
+        public int? StatusId { get; set; }
+
+        public Contact Contact { get; set; }
         public int ContactId { get; set; }
+
+        public IList<Person> People { get; set; }
     }
 }

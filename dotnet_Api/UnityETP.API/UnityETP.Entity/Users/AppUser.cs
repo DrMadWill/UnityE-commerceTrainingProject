@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Orders;
+using UnityETP.Entity.Products;
 
 namespace UnityETP.Entity.Users
 {
@@ -22,5 +23,8 @@ namespace UnityETP.Entity.Users
         public IList<Blog> Blogs { get; set; }
         public IList<Comment> Comments { get; set; }
         public IList<Order> Orders { get; set; }
+        public IList<Review> Reviews { get; set; }
+        public IList<ProductCreatingLog> ProductCreatingLogs { get; set; }
+
     }
 }

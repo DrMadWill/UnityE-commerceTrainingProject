@@ -6,7 +6,7 @@ namespace UnityETP.Entity.Orders
     /// <summary>
     /// Shippings 
     /// </summary>
-    [Table("Shippings")]
+    [Table("OrderShippings")]
     public class Shipping : BaseEntity<int>
     {
         [Key]

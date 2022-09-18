@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UnityETP.Entity.Products
 {
+    /// <summary>
+    /// Product Tags Table
+    /// </summary>
+    [Table("ProductTags")]
     public class Tag : BaseEntity<int>
     {
         [Key]
@@ -12,5 +16,7 @@ namespace UnityETP.Entity.Products
 
         [Required]
         [Column] public string Name { get; set; }
+
+        public IList<ProductToTag> ProductToTags { get; set; }
     }
 }

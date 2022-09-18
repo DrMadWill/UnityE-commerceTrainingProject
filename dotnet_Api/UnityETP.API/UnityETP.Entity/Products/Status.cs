@@ -4,6 +4,10 @@ using UnityETP.Entity.Commons;
 
 namespace UnityETP.Entity.Products
 {
+    /// <summary>
+    /// Product Statuses Table
+    /// </summary>
+    [Table("ProductStatuses")]
     public class Status : BaseEntity<int>
     {
         [Key]
@@ -14,7 +18,11 @@ namespace UnityETP.Entity.Products
         [Required]
         [Column] public string Name { get; set; }
 
+        // Relation
         public Color Color { get; set; }
+
         public int ColorId { get; set; }
+
+        public IList<Prodcut> Prodcuts { get; set; }
     }
 }

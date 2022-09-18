@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Orders;
+using UnityETP.Entity.Organizations;
 
 namespace UnityETP.Entity.Contacts
 {
@@ -21,5 +22,7 @@ namespace UnityETP.Entity.Contacts
         public int AddressId { get; set; }
         public IList<OnlineAddress> OnlineAddresses { get; set; }
         public IList<Detail> OrderDetails { get; set; }
+        public IList<Organization> Organizations { get; set; }
+        public IList<Person> People { get; set; }
     }
 }
