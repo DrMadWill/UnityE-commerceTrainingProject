@@ -10,7 +10,8 @@ namespace UnityETP.Entity.Blogs
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-
+        [Required]
+        [MinLength(3)]
         [Column] public string Description { get; set; }
         [Column] public bool IsBlocked { get; set; }
         [Column] public bool IsHasChild { get; set; }

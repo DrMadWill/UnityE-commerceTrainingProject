@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Contacts
 {
@@ -13,7 +14,10 @@ namespace UnityETP.Entity.Contacts
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+        [StringLength(Limit.LinkLength)]
         [Column] public string LocaltionURL { get; set; }
+
+        [StringLength(Limit.PostalCodeMaxLength)]
         [Column] public string PostalCode { get; set; }
 
         // Relation 

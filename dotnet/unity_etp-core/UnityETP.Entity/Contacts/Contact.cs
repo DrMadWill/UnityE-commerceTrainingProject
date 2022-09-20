@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Orders;
 using UnityETP.Entity.Organizations;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Contacts
 {
@@ -16,6 +17,7 @@ namespace UnityETP.Entity.Contacts
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
+        [StringLength(Limit.FaksLength)]
         [Column] public string Faks { get; set; }
         // Relation 
         public Address Address { get; set; }
