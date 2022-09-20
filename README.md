@@ -17,3 +17,4 @@ Database Diagram is being prepared.
 | [İlham](https://github.com/IlhamBinyetov) | ilham-back-end |  
 | [Xəyal](https://github.com/khayalsv) | khayal-back-end |  
 | [Nofəl](https://github.com/DrMadWill) | nofel-full-stack |
+| [Emin](https://github.com/EminElekberov) | - |  
