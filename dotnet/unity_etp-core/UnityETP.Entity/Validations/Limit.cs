@@ -21,7 +21,7 @@ namespace UnityETP.Entity.Validations
         public const int ColorCodeLength = 7;
         public const int IconLength = 50;
         public const int LinkLength = 250;
-        
+
         public const int EmailMaxLength = 320;
         public const int EmailMinLength = 5;
 
