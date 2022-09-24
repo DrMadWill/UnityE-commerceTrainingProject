@@ -2,26 +2,24 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Commons;
 
-namespace UnityETP.Entity.Orders
+namespace UnityETP.Entity.Payments
 {
     /// <summary>
-    /// Order Status
+    /// Payment Type
     /// </summary>
-    [Table("UserOrderStatus")]
-    public class Status : BaseEntity<int>
+    [Table("PaymentTypes")]
+    public class Type : BaseEntity<int>
     {
         [Key]
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
-        [Required]
         [Column] public string Name { get; set; }
-
-        // Region 
+        [Column] public string Icon { get; set; }
+        // Relation
         public Color Color { get; set; }
         public int ColorId { get; set; }
-
-        public IList<Order> UserOrders { get; set; }
+        public IList<Payment> Payments { get; set; }
     }
 }

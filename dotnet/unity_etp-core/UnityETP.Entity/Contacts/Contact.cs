@@ -23,7 +23,8 @@ namespace UnityETP.Entity.Contacts
         public Address Address { get; set; }
         public int AddressId { get; set; }
         public IList<OnlineAddress> OnlineAddresses { get; set; }
-        public IList<Detail> OrderDetails { get; set; }
+        public IList<Orders.Detail> UserOrderDetails { get; set; }
+        public IList<Vendors.Orders.Detail> VendorOrderDetails { get; set; }
         public IList<Organization> Organizations { get; set; }
         public IList<Person> People { get; set; }
     }

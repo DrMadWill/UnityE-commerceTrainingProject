@@ -28,7 +28,7 @@ namespace UnityETP.Entity.Users
         public int UserStatusId { get; set; }
         public IList<Blog> Blogs { get; set; }
         public IList<Comment> Comments { get; set; }
-        public IList<Order> Orders { get; set; }
+        public IList<Order> UserOrders { get; set; }
         public IList<Review> Reviews { get; set; }
         public IList<ProductCreatingLog> ProductCreatingLogs { get; set; }
 

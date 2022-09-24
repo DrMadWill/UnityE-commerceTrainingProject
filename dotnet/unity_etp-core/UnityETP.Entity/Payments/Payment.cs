@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Orders;
 
-namespace UnityETP.Entity.Orders.Payments
+namespace UnityETP.Entity.Payments
 {
     /// <summary>
     /// Payments
@@ -18,6 +19,9 @@ namespace UnityETP.Entity.Orders.Payments
         public int PaymentTypeId { get; set; }
         public Card PaymentCard { get; set; }
         public int PaymentCardId { get; set; }
-        public IList<Order> Orders { get; set; }
+        public IList<Orders.Order> UserOrders { get; set; }
+        public IList<Vendors.Orders.Order> VendorOrders { get; set; }
+
+
     }
 }

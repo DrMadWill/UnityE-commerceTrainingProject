@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UnityETP.Entity.Orders.Payments
+namespace UnityETP.Entity.Payments
 {
     /// <summary>
     /// Payment Card
