@@ -27,6 +27,15 @@ namespace UnityETP.Entity.Validations
 
         public const int PostalCodeMaxLength = 30;
         public const int FaksLength = 30;
+        public const int PhoneLength = 15;
 
+
+        public const int ControllerMaxLength = 30;
+        public const int ControllerMinLength = 2;
+
+        public const int ActionMaxLength = 70;
+        public const int ActionMinLength = 3;
+
+        public const int IBANLength = 3;
     }
 }

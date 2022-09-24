@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Orders;
 using UnityETP.Entity.Products;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Users
 {
@@ -11,6 +13,8 @@ namespace UnityETP.Entity.Users
     /// </summary>
     public class AppUser : IdentityUser, IBaseEntity<string>
     {
+        [RegularExpression(RegEx.Email, ErrorMessage = "Email format not valid.")]
+        [Column] public override string Email { get; set; }
         [Column] public string Name { get; set; }
         [Column] public string SureName { get; set; }
         [Column] public string Image { get; set; }

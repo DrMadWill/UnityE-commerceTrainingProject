@@ -20,8 +20,8 @@ namespace UnityETP.Entity.Commons
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
-        [StringLength(Limit.IconLength)]
-        [Column] public string Code { get; set; }
+        [StringLength(Limit.IconLength,MinimumLength = Limit.IconLength)]
+        [Column(TypeName = Validations.Type.Char)] public string Code { get; set; }
         // Relation 
        
         public Color Color { get; set; }

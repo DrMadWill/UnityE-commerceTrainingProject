@@ -16,6 +16,7 @@ namespace UnityETP.Entity.Commons
         public override int Id { get; set; }
         [Required]
         [StringLength(Limit.EmailMaxLength,MinimumLength =Limit.EmailMinLength)]
+        [RegularExpression(RegEx.Email, ErrorMessage = "Email format not valid.")]
         [Column] public string Email { get; set; }
     }
 }
