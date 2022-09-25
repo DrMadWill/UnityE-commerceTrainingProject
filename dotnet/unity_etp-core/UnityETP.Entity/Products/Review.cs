@@ -15,7 +15,7 @@ namespace UnityETP.Entity.Products
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
-        [Column] public byte Star { get; set; }
+        [Column] public float Star { get; set; }
         [Column] public string Content { get; set; }
 
         // Relations

@@ -15,12 +15,18 @@ namespace UnityETP.Entity.Users
     {
         [RegularExpression(RegEx.Email, ErrorMessage = "Email format not valid.")]
         [Column] public override string Email { get; set; }
+        [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+        [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string SureName { get; set; }
+
+        [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
         [Column] public decimal Amount { get; set; }
         [Column] public bool IsSucScribe { get; set; }
-        [Column(TypeName = "tinyint")] public byte Age { get; set; }
+        [Column(TypeName = Validations.Type.Byte)] public byte Age { get; set; }
 
         [Column] public DateTime CreateAt { get; set; } = DateTime.Now;
         [Column] public DateTime? UpdateAt { get; set; }

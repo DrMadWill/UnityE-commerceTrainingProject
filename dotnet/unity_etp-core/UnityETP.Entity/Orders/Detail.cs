@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
-using UnityETP.Entity.Shipings;
+using UnityETP.Entity.Shippings;
 
 namespace UnityETP.Entity.Orders
 {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityETP.Entity.Contacts;
-using UnityETP.Entity.Shipings;
+using UnityETP.Entity.Shippings;
 
 namespace UnityETP.Entity.Vendors.Orders
 {

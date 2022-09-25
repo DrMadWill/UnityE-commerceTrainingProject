@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Options;
 using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Commons
 {
     /// <summary>
-    /// Color
+    /// Icons
     /// </summary>
     [Table("Icons")]
     public class Icon : BaseEntity<int>
@@ -27,5 +28,7 @@ namespace UnityETP.Entity.Commons
         public Color Color { get; set; }
         public int ColorId { get; set; }
         public IList<OnlineAddress> OnlineAddresses { get; set; }
+        public IList<Shippings.Status> ShippStatus { get; set; }
+        public IList<Option> Options { get; set; }
     }
 }

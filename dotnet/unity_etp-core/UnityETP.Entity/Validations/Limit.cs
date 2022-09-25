@@ -36,6 +36,7 @@ namespace UnityETP.Entity.Validations
         public const int ActionMaxLength = 70;
         public const int ActionMinLength = 3;
 
-        public const int IBANLength = 3;
+        public const int IBANLength = 34;
+        public const int SkuLength = 3;
     }
 }

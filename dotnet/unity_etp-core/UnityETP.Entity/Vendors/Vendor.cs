@@ -13,7 +13,7 @@ namespace UnityETP.Entity.Vendors
         public override int Id { get; set; }
 
         [Column] public DateTime? OrganizationCreated { get; set; }
-        [Column] public byte Star { get; set; }
+        [Column] public float Star { get; set; }
 
         // Relation
         public Color Color { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Shipings;
 using UnityETP.Entity.Validations;
 using UnityETP.Entity.Vendors;
 
@@ -33,5 +34,7 @@ namespace UnityETP.Entity.Organizations
         public int ContactId { get; set; }
 
         public IList<Person> People { get; set; }
+
+        public IList<Shipping> Shippings { get; set; }
     }
 }

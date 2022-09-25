@@ -11,7 +11,7 @@ using UnityETP.Entity.Users;
 namespace UnityETP.Entity.Vendors.Orders
 {
     /// <summary>
-    /// Orders 
+    /// Vendor Orders 
     /// </summary>
     [Table("VendorOrders")]
     public class Order : BaseEntity<int>
