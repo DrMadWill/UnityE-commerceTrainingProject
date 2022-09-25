@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Users;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Blogs
 {
@@ -16,8 +17,10 @@ namespace UnityETP.Entity.Blogs
         public override int Id { get; set; }
 
         [Required]
+        [StringLength(Limit.TitleMaxLength,MinimumLength = Limit.TitleMinLength)]
         [Column] public string Title { get; set; }
 
+        [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
 
         [Column] public string PreviewDescrption { get; set; }

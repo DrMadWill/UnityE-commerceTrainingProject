@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Organizations
 {
@@ -16,6 +17,7 @@ namespace UnityETP.Entity.Organizations
         public override int Id { get; set; }
 
         [Required]
+        [StringLength(Limit.NameMaxLength*2, MinimumLength = Limit.NameMinLength)]
         [Column] public string FullName { get; set; }
         
         // Relation

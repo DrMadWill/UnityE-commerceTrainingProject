@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Orders;
 using UnityETP.Entity.Products;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Commons
 {
@@ -17,19 +18,22 @@ namespace UnityETP.Entity.Commons
         public override int Id { get; set; }
 
         [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 7, MinimumLength = 7)]
-        [Column(TypeName = "char(7)")] public string Code { get; set; }
+        [StringLength(maximumLength: Limit.ColorCodeLength, MinimumLength = Limit.ColorCodeLength)]
+        [Column(TypeName = Validations.Type.Char)] public string Code { get; set; }
         // Relation 
-        public IList<Orders.Status> OrderStatuses { get; set; }
+        public IList<Orders.Status> UserOrderStatuses { get; set; }
+        public IList<Vendors.Orders.Status> VendorOrderStatuses { get; set; }
         public IList<Organizations.Status> OrganizationStatuses { get; set; }
         public IList<Products.Status> ProductStatuses { get; set; }
         public IList<Users.Status> UserStatuses { get; set; }
+        public IList<Shipings.Status> ShipingStatuses { get; set; }
 
         public IList<Icon> Icons { get; set; }
-        public IList<Orders.Payments.Type> Types { get; set; }
+        public IList<Payments.Type> Types { get; set; }
         public IList<Brand> Brands { get; set; }
     }
 }

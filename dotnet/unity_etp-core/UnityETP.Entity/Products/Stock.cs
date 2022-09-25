@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using UnityETP.Entity.Orders;
 
 namespace UnityETP.Entity.Products
 {
@@ -25,6 +24,7 @@ namespace UnityETP.Entity.Products
         public Size ProductSize { get; set; }
         public int ProductSizeId { get; set; }
 
-        public IList<StockToOrder> StockToOrders { get; set; }
+        public IList<Orders.Item> UserOrderItems { get; set; }
+        public IList<Vendors.Orders.Item> VendorOrderItems { get; set; }
     }
 }

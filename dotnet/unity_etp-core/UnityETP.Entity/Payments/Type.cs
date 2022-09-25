@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Commons;
+using UnityETP.Entity.Validations;
 
-namespace UnityETP.Entity.Orders.Payments
+namespace UnityETP.Entity.Payments
 {
     /// <summary>
     /// Payment Type
@@ -14,8 +15,10 @@ namespace UnityETP.Entity.Orders.Payments
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-
+        [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+        [StringLength(Limit.IconLength)]
         [Column] public string Icon { get; set; }
         // Relation
         public Color Color { get; set; }

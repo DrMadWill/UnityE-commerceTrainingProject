@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
-namespace UnityETP.Entity.Orders.Payments
+namespace UnityETP.Entity.Payments
 {
     /// <summary>
     /// Payment Card
@@ -13,10 +14,10 @@ namespace UnityETP.Entity.Orders.Payments
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-
-        [Column] public int IBAN { get; set; }
-        public byte Month { get; set; }
-        public int Year { get; set; }
+        [StringLength(Limit.IBANLength,MinimumLength = Limit.IBANLength)]
+        [Column(TypeName = Validations.Type.Char)] public int IBAN { get; set; }
+        [Column(TypeName =Validations.Type.Byte)] public byte Month { get; set; }
+        [Column(TypeName = Validations.Type.SInt)] public int Year { get; set; }
         public IList<Payment> Payments { get; set; }
     }
 }

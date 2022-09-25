@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 using UnityETP.Entity.Vendors;
 
 namespace UnityETP.Entity.Products
@@ -16,12 +17,15 @@ namespace UnityETP.Entity.Products
         public override int Id { get; set; }
 
         [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
-
+        [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
         [Column] public decimal CurrentPrice { get; set; }
         [Column] public decimal? OldPrice { get; set; }
-        [Column(TypeName = "tinyint")] public byte Star { get; set; }
+        [Range(1,5)]
+        [Column] public float Star { get; set; }
+        [MinLength(Limit.MinLenght)]
         [Column] public string MiniDescription { get; set; }
         [Column] public bool IsEnded { get; set; }
 

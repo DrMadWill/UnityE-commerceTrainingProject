@@ -2,6 +2,7 @@
 
 namespace UnityETP.Entity
 {
+    [NotMapped]
     public class Modfiy
     {
         [Column] public DateTime CreateAt { get; set; } = DateTime.Now;

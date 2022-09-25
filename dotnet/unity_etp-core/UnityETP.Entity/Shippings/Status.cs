@@ -1,14 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Validations;
 
-namespace UnityETP.Entity.Products
+namespace UnityETP.Entity.Shippings
 {
     /// <summary>
-    /// Product Statuses Table
+    /// Shipping Statuses Table
     /// </summary>
-    [Table("ProductStatuses")]
+    [Table("ShippingStatuses")]
     public class Status : BaseEntity<int>
     {
         [Key]
@@ -25,6 +30,10 @@ namespace UnityETP.Entity.Products
 
         public int ColorId { get; set; }
 
-        public IList<Prodcut> Prodcuts { get; set; }
+        public Icon Icon { get; set; }
+
+        public int IconId { get; set; }
+
+        public IList<Shipping> Shippings { get; set; }
     }
 }

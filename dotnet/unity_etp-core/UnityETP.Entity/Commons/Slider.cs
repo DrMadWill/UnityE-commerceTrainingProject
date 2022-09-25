@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Commons
 {
@@ -13,9 +14,13 @@ namespace UnityETP.Entity.Commons
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
-
+        [Required]
+        [StringLength(Limit.LinkLength)]
         [Column] public string Link { get; set; }
+        [StringLength(Limit.TitleMaxLength,MinimumLength =Limit.MinLenght)]
         [Column] public string Title { get; set; }
+
+        [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
     }
 }

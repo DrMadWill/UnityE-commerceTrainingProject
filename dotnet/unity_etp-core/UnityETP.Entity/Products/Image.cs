@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Products
 {
@@ -14,7 +15,10 @@ namespace UnityETP.Entity.Products
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
+        [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+        [StringLength(Limit.ImageMaxLength)]
         [Column] public string Source { get; set; }
 
         // Relation

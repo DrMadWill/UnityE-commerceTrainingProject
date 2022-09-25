@@ -7,8 +7,8 @@ namespace UnityETP.Entity.Orders
     /// <summary>
     /// Stock To Order Connection  
     /// </summary>
-    [Table("StockToOrders")]
-    public class StockToOrder : BaseEntity<int>
+    [Table("UserOrderItems")]
+    public class Item : BaseEntity<int>
     {
         [Key]
         [Column]
@@ -17,7 +17,7 @@ namespace UnityETP.Entity.Orders
 
         public Stock ProdcutStock { get; set; }
         public int ProdcutStockId { get; set; }
-        public Order Order { get; set; }
+        public Order UserOrder { get; set; }
         public int OrderId { get; set; }
 
         [Column] public int Count { get; set; }

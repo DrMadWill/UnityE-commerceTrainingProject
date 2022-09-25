@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Products
 {
@@ -15,6 +16,7 @@ namespace UnityETP.Entity.Products
         public override int Id { get; set; }
 
         [Required]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
         public IList<Prodcut> Prodcuts { get; set; }

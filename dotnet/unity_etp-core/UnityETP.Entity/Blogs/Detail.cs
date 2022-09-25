@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Blogs
 {
@@ -15,7 +16,8 @@ namespace UnityETP.Entity.Blogs
         public override int Id { get; set; }
 
         [Required]
-        [Column(TypeName = "ntext")] public string Description { get; set; }
+        [MinLength(Limit.MinLenght)]
+        [Column(TypeName = Validations.Type.Text)] public string Description { get; set; }
         // Relation 
         public Blog Blog { get; set; }
     }
