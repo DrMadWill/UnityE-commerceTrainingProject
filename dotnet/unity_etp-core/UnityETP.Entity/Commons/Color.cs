@@ -30,7 +30,6 @@ namespace UnityETP.Entity.Commons
         public IList<Organizations.Status> OrganizationStatuses { get; set; }
         public IList<Products.Status> ProductStatuses { get; set; }
         public IList<Users.Status> UserStatuses { get; set; }
-        public IList<Shipings.Status> ShipingStatuses { get; set; }
 
         public IList<Icon> Icons { get; set; }
         public IList<Payments.Type> Types { get; set; }

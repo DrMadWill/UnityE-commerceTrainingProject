@@ -26,10 +26,7 @@ namespace UnityETP.Entity.Shippings
         [Column] public string Name { get; set; }
 
         // Relation
-        public Color Color { get; set; }
-
-        public int ColorId { get; set; }
-
+      
         public Icon Icon { get; set; }
 
         public int IconId { get; set; }
