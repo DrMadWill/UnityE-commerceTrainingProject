@@ -15,22 +15,42 @@ namespace UnityETP.DataAccess.Abstract
         {
             IQueryable<TEntity> GetAll();
             Task<List<TEntity>> GetAllList();
+
+            IQueryable<TEntity> GetAllWithSoftDeleted();
+            Task<List<TEntity>> GetAllListWithSoftDeleted();
+
             IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
             Task<List<TEntity>> GetAllListIncluding(params Expression<Func<TEntity, object>>[] includeProperties);
-            
+
+
+            IQueryable<TEntity> GetAllIncludingWithSoftDeleted(params Expression<Func<TEntity, object>>[] includeProperties);
+            Task<List<TEntity>> GetAllListIncludingWithSoftDeleted(params Expression<Func<TEntity, object>>[] includeProperties);
+
             ValueTask<TEntity> Find(TPrimary id);
 
             Task<TEntity> GetFrist(Expression<Func<TEntity, bool>> predicate);
             Task<TEntity> GetLast(Expression<Func<TEntity, bool>> predicate);
-            
+
+            Task<TEntity> GetFristWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
+            Task<TEntity> GetLastWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
+
             IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
             IQueryable<TEntity> FindByInculding(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties);
+
+            IQueryable<TEntity> FindByWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
+            IQueryable<TEntity> FindByInculdingWithSoftDeleted(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties);
 
             Task<bool> Any(Expression<Func<TEntity, bool>> predicate);
             Task<bool> Alll(Expression<Func<TEntity, bool>> predicate);
 
+            Task<bool> AnyWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
+            Task<bool> AlllWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
+
             Task<int> Count();
             Task<int> Count(Expression<Func<TEntity, bool>> predicate);
+
+            Task<int> CountWithSoftDeleted();
+            Task<int> CountWithSoftDeleted(Expression<Func<TEntity, bool>> predicate);
 
             Task<TEntity> Add(TEntity entity); 
             Task<TEntity> AddRange(List<TEntity> entity);

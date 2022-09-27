@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.DataAccess", "UnityETP.DataAccess\UnityETP.DataAccess.csproj", "{FDCF0E12-D281-4BBE-814F-32F2F4073D4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.Entity", "..\..\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj", "{E464E328-C47D-409B-A626-90EE4DAA87A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.Entity", "..\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj", "{B6EC245F-3342-4803-AC90-C4A1D5BEB56C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{FDCF0E12-D281-4BBE-814F-32F2F4073D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDCF0E12-D281-4BBE-814F-32F2F4073D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDCF0E12-D281-4BBE-814F-32F2F4073D4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E464E328-C47D-409B-A626-90EE4DAA87A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E464E328-C47D-409B-A626-90EE4DAA87A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E464E328-C47D-409B-A626-90EE4DAA87A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E464E328-C47D-409B-A626-90EE4DAA87A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EC245F-3342-4803-AC90-C4A1D5BEB56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EC245F-3342-4803-AC90-C4A1D5BEB56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EC245F-3342-4803-AC90-C4A1D5BEB56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EC245F-3342-4803-AC90-C4A1D5BEB56C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
