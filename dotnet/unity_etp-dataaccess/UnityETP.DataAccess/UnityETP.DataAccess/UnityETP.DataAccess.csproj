@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnityETP.Entity\UnityETP.Entity.csproj" />
+    <ProjectReference Include="..\..\..\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj" />
   </ItemGroup>
 
 </Project>
