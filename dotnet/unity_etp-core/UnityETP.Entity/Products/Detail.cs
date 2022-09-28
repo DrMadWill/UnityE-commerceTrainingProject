@@ -12,8 +12,10 @@ namespace UnityETP.Entity.Products
     {
         [Key, ForeignKey("Products")]
         public override int Id { get; set; }
+
         [MinLength(Limit.MinLenght)]
         [Column(TypeName = Validations.Type.Text)] public string DescriptionFull { get; set; }
+
         [MinLength(Limit.MinLenght)]
         [Column(TypeName = Validations.Type.Text)] public string Additionalinfo { get; set; }
 

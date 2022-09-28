@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityETP.Entity.Payments;
-using UnityETP.Entity.Users;
 
 namespace UnityETP.Entity.Vendors.Orders
 {
     /// <summary>
-    /// Vendor Orders 
+    /// Vendor Orders
     /// </summary>
     [Table("VendorOrders")]
     public class Order : BaseEntity<int>
@@ -25,6 +19,7 @@ namespace UnityETP.Entity.Vendors.Orders
 
         // Relation
         public Status Status { get; set; }
+
         public int StatusId { get; set; }
         public Payment Payment { get; set; }
         public int PaymentId { get; set; }

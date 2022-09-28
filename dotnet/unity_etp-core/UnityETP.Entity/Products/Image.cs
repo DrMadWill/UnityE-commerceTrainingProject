@@ -18,6 +18,7 @@ namespace UnityETP.Entity.Products
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [StringLength(Limit.ImageMaxLength)]
         [Column] public string Source { get; set; }
 

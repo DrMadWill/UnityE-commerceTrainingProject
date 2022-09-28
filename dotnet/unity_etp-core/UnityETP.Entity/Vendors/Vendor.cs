@@ -9,7 +9,7 @@ namespace UnityETP.Entity.Vendors
 {
     public class Vendor : BaseEntity<int>
     {
-        [Key,ForeignKey("Organizations")]
+        [Key, ForeignKey("Organizations")]
         public override int Id { get; set; }
 
         [Column] public DateTime? OrganizationCreated { get; set; }
@@ -17,6 +17,7 @@ namespace UnityETP.Entity.Vendors
 
         // Relation
         public Color Color { get; set; }
+
         public int ColorId { get; set; }
         public IList<Prodcut> Prodcuts { get; set; }
         public Organization Organization { get; set; }

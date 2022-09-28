@@ -6,7 +6,7 @@ using UnityETP.Entity.Validations;
 namespace UnityETP.Entity.Blogs
 {
     /// <summary>
-    /// Blogs Data 
+    /// Blogs Data
     /// </summary>
     [Table("Blogs")]
     public class Blog : BaseEntity<int>
@@ -17,7 +17,7 @@ namespace UnityETP.Entity.Blogs
         public override int Id { get; set; }
 
         [Required]
-        [StringLength(Limit.TitleMaxLength,MinimumLength = Limit.TitleMinLength)]
+        [StringLength(Limit.TitleMaxLength, MinimumLength = Limit.TitleMinLength)]
         [Column] public string Title { get; set; }
 
         [StringLength(Limit.ImageMaxLength)]
@@ -25,13 +25,12 @@ namespace UnityETP.Entity.Blogs
 
         [Column] public string PreviewDescrption { get; set; }
 
-        // Relation 
+        // Relation
 
         public Detail Detail { get; set; }
 
         public Category Category { get; set; }
         public int CategoryId { get; set; }
-
 
         public AppUser User { get; set; }
         public string UserId { get; set; }

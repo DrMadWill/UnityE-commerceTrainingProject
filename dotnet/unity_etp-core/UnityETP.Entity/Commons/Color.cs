@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using UnityETP.Entity.Orders;
 using UnityETP.Entity.Products;
 using UnityETP.Entity.Validations;
 
@@ -24,8 +23,10 @@ namespace UnityETP.Entity.Commons
         [Required]
         [StringLength(maximumLength: Limit.ColorCodeLength, MinimumLength = Limit.ColorCodeLength)]
         [Column(TypeName = Validations.Type.Char)] public string Code { get; set; }
-        // Relation 
+
+        // Relation
         public IList<Orders.Status> UserOrderStatuses { get; set; }
+
         public IList<Vendors.Orders.Status> VendorOrderStatuses { get; set; }
         public IList<Organizations.Status> OrganizationStatuses { get; set; }
         public IList<Products.Status> ProductStatuses { get; set; }

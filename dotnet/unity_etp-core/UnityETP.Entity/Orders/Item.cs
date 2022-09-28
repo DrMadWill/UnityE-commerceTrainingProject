@@ -5,7 +5,7 @@ using UnityETP.Entity.Products;
 namespace UnityETP.Entity.Orders
 {
     /// <summary>
-    /// Stock To Order Connection  
+    /// Stock To Order Connection
     /// </summary>
     [Table("UserOrderItems")]
     public class Item : BaseEntity<int>

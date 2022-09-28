@@ -18,6 +18,7 @@ namespace UnityETP.Entity.Organizations
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         // Relation
         public int ColorId { get; set; }
 

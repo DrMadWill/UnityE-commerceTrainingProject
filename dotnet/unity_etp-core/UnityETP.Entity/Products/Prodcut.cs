@@ -19,14 +19,19 @@ namespace UnityETP.Entity.Products
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
+
         [Column] public decimal CurrentPrice { get; set; }
         [Column] public decimal? OldPrice { get; set; }
-        [Range(1,5)]
+
+        [Range(1, 5)]
         [Column] public float Star { get; set; }
+
         [MinLength(Limit.MinLenght)]
         [Column] public string MiniDescription { get; set; }
+
         [Column] public bool IsEnded { get; set; }
 
         // Relation

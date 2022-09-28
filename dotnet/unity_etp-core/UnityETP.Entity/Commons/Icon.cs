@@ -21,10 +21,11 @@ namespace UnityETP.Entity.Commons
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
-        [StringLength(Limit.IconLength,MinimumLength = Limit.IconLength)]
+        [StringLength(Limit.IconLength, MinimumLength = Limit.IconLength)]
         [Column(TypeName = Validations.Type.Char)] public string Code { get; set; }
-        // Relation 
-       
+
+        // Relation
+
         public Color Color { get; set; }
         public int ColorId { get; set; }
         public IList<OnlineAddress> OnlineAddresses { get; set; }

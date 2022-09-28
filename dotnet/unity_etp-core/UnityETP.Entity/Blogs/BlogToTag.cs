@@ -5,7 +5,7 @@ namespace UnityETP.Entity.Blogs
 {
     /// <summary>
     /// Blog To Tag Connection Table
-    /// Protect Constraint Key ( Dot add Same BlogId : TagId )  
+    /// Protect Constraint Key ( Dot add Same BlogId : TagId )
     /// </summary>
     [Table("BlogToTags")]
     public class BlogToTag : BaseEntity<int>
@@ -15,10 +15,11 @@ namespace UnityETP.Entity.Blogs
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
-        // Relation 
+        // Relation
         public int BlogId { get; set; }
+
         public Blog Blog { get; set; }
-        
+
         public int TagId { get; set; }
         public Tag Tag { get; set; }
     }
