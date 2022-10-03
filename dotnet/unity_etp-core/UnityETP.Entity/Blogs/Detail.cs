@@ -8,7 +8,7 @@ namespace UnityETP.Entity.Blogs
     /// Blog Detail  Table
     /// </summary>
 
-    [Table("BlogDetail")]
+    [Table("BlogDetails")]
     public class Detail : BaseEntity<int>
     {
         [Key, ForeignKey("Blogs")]

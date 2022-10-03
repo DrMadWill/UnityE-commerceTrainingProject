@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Shippings;
 using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Organizations

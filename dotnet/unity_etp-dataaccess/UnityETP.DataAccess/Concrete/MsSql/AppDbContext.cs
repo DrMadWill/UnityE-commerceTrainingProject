@@ -1,27 +1,142 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using UnityETP.Entity.Blogs;
+using UnityETP.Entity.Commons;
+using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Options;
+using UnityETP.Entity.Orders;
+using UnityETP.Entity.Organizations;
+using UnityETP.Entity.Payments;
+using UnityETP.Entity.Products;
+using UnityETP.Entity.Shippings;
 using UnityETP.Entity.Users;
+using UnityETP.Entity.Vendors;
 
 namespace UnityETP.DataAccess.Concrete.MsSql
 {
-    public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
-        public DbSet<Blog> Blogs { get; set; }
+        #region DbSet (Tables)
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("");
-        }
+        #region Blogs
+
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogToTag> BlogToTags { get; set; }
+        public DbSet<Entity.Blogs.Category> BlogCategories { get; set; }
+        public DbSet<Comment> BlogComments { get; set; }
+        public DbSet<Entity.Blogs.Detail> BlogDetails { get; set; }
+        public DbSet<Entity.Blogs.Tag> BlogTags { get; set; }
+
+        #endregion
+
+        #region Commons
+
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Icon> Icons { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<SucScribe> SucScribes { get; set; }
+
+
+        #endregion
+
+        #region Contacts
+
+        public DbSet<Address> Addresses  { get; set; }
+        public DbSet<City> Cities  { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<OnlineAddress> OnlineAddresses  { get; set; }
+        public DbSet<Phone> Phones  { get; set; }
+        public DbSet<Region> Regions  { get; set; }
+
+
+        #endregion
+
+        #region Options
+        public DbSet<Entity.Options.Item> Items { get; set; }
+        public DbSet<Option> Options { get; set; }
+        #endregion
+
+        #region Orders
+
+        public DbSet<Entity.Orders.Order> UserOrders { get; set; }
+        public DbSet<Entity.Orders.Detail> UserOrderDetails { get; set; }
+        public DbSet<Entity.Orders.Item> UserOrderItems { get; set; }
+        public DbSet<Entity.Orders.Status> UserOrderStatus { get; set; }
+        #endregion
+
+        #region Organizations
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Person> OrganizationPeople { get; set; }
+        public DbSet<Position> OrganizationPositions { get; set; }
+        public DbSet<Entity.Organizations.Status> OrganizationStatuses { get; set; }
+        #endregion
+
+        #region Payments
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Card> PaymentCards { get; set; }
+        public DbSet<Entity.Payments.Type> PaymentTypes { get; set; }
+
+        #endregion
+
+        #region Products
+        public DbSet<Prodcut> Prodcuts { get; set; }
+        public DbSet<Brand> ProductBrands { get; set; }
+        public DbSet<Entity.Products.Category> ProductCategories { get; set; }
+        public DbSet<Entity.Products.Detail> ProductDetails { get; set; }
+        public DbSet<Image> ProductImages { get; set; }
+        public DbSet<ProductCreatingLog> ProductCreatingLogs { get; set; }
+        public DbSet<ProductToTag> ProductToTags { get; set; }
+        public DbSet<Review> ProductReviews { get; set; }
+        public DbSet<Size> ProductSizes { get; set; }
+        public DbSet<Entity.Products.Status> ProductStatuses { get; set; }
+        public DbSet<Stock> ProductStocks { get; set; }
+        public DbSet<SubCategory> ProductSubCategories { get; set; }
+        public DbSet<Entity.Products.Tag> ProductTags { get; set; }
+        public DbSet<Entity.Products.Type> ProductTypes { get; set; }
+
+        #endregion
+
+        #region Shippings
+        public DbSet<Shipping> Shippings { get; set; }
+        public DbSet<Entity.Shippings.Status> ShippingStatuses { get; set; }
+        #endregion
+
+        #region Users
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<Authorization> UserAuthorizations { get; set; }
+        public DbSet<Entity.Users.Status> UserStatuses { get; set; }
+        #endregion
+
+        #region Vendors
+        public DbSet<Vendor> Vendors { get; set; }
+        
+        #region Orders
+        public DbSet<Entity.Vendors.Orders.Order> VendorOrders { get; set; }
+        public DbSet<Entity.Vendors.Orders.Detail> VendorOrderDetails { get; set; }
+        public DbSet<Entity.Vendors.Orders.Item> VendorOrderItems { get; set; }
+        public DbSet<Entity.Vendors.Orders.Status> VendorOrderStatus { get; set; }
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer("Data Source=Will;Initial Catalog=Unity_Ecommerce;Integrated Security=SSPI;MultipleActiveResultSets=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
         }
     }
 }

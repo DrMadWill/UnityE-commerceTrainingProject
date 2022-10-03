@@ -7,6 +7,7 @@ using UnityETP.Entity.Vendors.Orders;
 
 namespace UnityETP.Entity.Vendors
 {
+    [Table("Vendors")]
     public class Vendor : BaseEntity<int>
     {
         [Key, ForeignKey("Organizations")]

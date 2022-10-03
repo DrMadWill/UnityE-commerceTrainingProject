@@ -4,6 +4,11 @@ using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Blogs
 {
+    /// <summary>
+    /// Blog To Tag Connection Table
+    /// Protect Constraint Key ( Dot add Same BlogId : TagId )
+    /// </summary>
+    [Table("BlogCategories")]
     public class Category : BaseEntity<int>
     {
         [Key]

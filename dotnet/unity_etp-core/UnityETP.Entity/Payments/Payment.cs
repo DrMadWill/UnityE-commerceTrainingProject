@@ -6,7 +6,7 @@ namespace UnityETP.Entity.Payments
     /// <summary>
     /// Payments
     /// </summary>
-    [Table("Payment")]
+    [Table("Payments")]
     public class Payment : BaseEntity<int>
     {
         [Key]

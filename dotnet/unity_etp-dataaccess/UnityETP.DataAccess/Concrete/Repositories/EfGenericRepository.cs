@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using UnityETP.DataAccess.Concrete.MsSql;
 using UnityETP.Entity;
 using static UnityETP.DataAccess.Abstract.IBaseRepostitory;
 
-namespace UnityETP.DataAccess.Concrete.MsSql.Repositories
+namespace UnityETP.DataAccess.Concrete.Repositories
 {
     public class EfGenericRepository<TEntity, TPrimary> : IBaseRepostitory<TEntity, TPrimary>
         where TEntity : class, IBaseEntity<TPrimary>
@@ -37,9 +38,7 @@ namespace UnityETP.DataAccess.Concrete.MsSql.Repositories
         public IQueryable<TEntity> GetAllIncluding(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             var query = GetAll(isNotSelectSoftDelete);
-            BindIncludeProperties(query, includeProperties);
-            includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
-            return query;
+            return BindIncludeProperties(query, includeProperties); ;
         }
 
         public async ValueTask<TEntity> Find(TPrimary id) => await Table.FindAsync(id);
@@ -52,7 +51,7 @@ namespace UnityETP.DataAccess.Concrete.MsSql.Repositories
         public IQueryable<TEntity> FindAllByInculding(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             var query = GetAll(isNotSelectSoftDelete);
-            query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            query = BindIncludeProperties(query, includeProperties);
             return query.Where(predicate);
         }
 
@@ -86,55 +85,61 @@ namespace UnityETP.DataAccess.Concrete.MsSql.Repositories
             return await GetAll(isNotSelectSoftDelete).CountAsync(predicate);
         }
 
-        private void BindIncludeProperties(IQueryable<TEntity> query, IEnumerable<Expression<Func<TEntity, object>>> includeProperties)
+        private IQueryable<TEntity> BindIncludeProperties(IQueryable<TEntity> query, IEnumerable<Expression<Func<TEntity, object>>> includeProperties)
         {
-            includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            return includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
         }
 
         public async Task<TEntity> Add(TEntity entity)
         {
+            entity.CreateAt = DateTime.Now;
             await Table.AddAsync(entity);
             return entity;
         }
 
-        public async Task<List<TEntity>> AddRange(List<TEntity> entity)
+        public async Task<List<TEntity>> AddRange(List<TEntity> entities)
         {
-            await Table.AddRangeAsync(entity);
-            return entity;
+            entities.ForEach(entitiy => entitiy.CreateAt = DateTime.Now);
+            await Table.AddRangeAsync(entities);
+            return entities;
         }
 
         public async Task<TEntity> Update(TEntity entity)
         {
+            entity.UpdateAt = DateTime.Now;
             Table.Update(entity);
             //_dbContext.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 
-        public async Task<List<TEntity>> UpdateRange(List<TEntity> entity)
+        public async Task<List<TEntity>> UpdateRange(List<TEntity> entities)
         {
-            Table.UpdateRange(entity);
+            entities.ForEach(entity => entity.UpdateAt = DateTime.Now);
+            Table.UpdateRange(entities);
             //_dbContext.Entry(entity).State = EntityState.Modified;
-            return entity;
+            return entities;
         }
 
         public async Task<TEntity> Delete(TEntity entity)
         {
-            Table.Remove(entity);
+            entity.IsDelete = true;
+            Table.Update(entity);
             // _dbContext.Entry(entity).State = EntityState.Deleted;
             return entity;
         }
 
-        public async Task<List<TEntity>> DeleteRange(List<TEntity> entity)
+        public async Task<List<TEntity>> DeleteRange(List<TEntity> entities)
         {
-            Table.RemoveRange(entity);
+            entities.ForEach((e) => e.IsDelete = true);
+            Table.UpdateRange(entities);
             // _dbContext.Entry(entity).State = EntityState.Deleted;
-            return entity;
+            return entities;
         }
 
         public async Task DeleteWhere(Expression<Func<TEntity, bool>> predicate)
         {
             List<TEntity> entities = FindAllBy(predicate).ToList();
-            DeleteRange(entities);
+            await DeleteRange(entities);
             //foreach (var entity in entities)
             //{
             //    _dbContext.Entry(entity).State = EntityState.Deleted;
@@ -155,11 +160,11 @@ namespace UnityETP.DataAccess.Concrete.MsSql.Repositories
             return entity;
         }
 
-        public async Task<List<TEntity>> RemoveRange(List<TEntity> entity) // Hard Delete
+        public async Task<List<TEntity>> RemoveRange(List<TEntity> entities) // Hard Delete
         {
-            Table.RemoveRange(entity);
+            Table.RemoveRange(entities);
             // _dbContext.Entry(entity).State = EntityState.Deleted;
-            return entity;
+            return entities;
         }
 
         public void Dispose()

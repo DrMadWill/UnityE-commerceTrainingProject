@@ -4,6 +4,11 @@ using UnityETP.Entity.Users;
 
 namespace UnityETP.Entity.Blogs
 {
+    /// <summary>
+    /// Blog To Tag Connection Table
+    /// Protect Constraint Key ( Dot add Same BlogId : TagId )
+    /// </summary>
+    [Table("BlogComments")]
     public class Comment : BaseEntity<int>
     {
         [Key]

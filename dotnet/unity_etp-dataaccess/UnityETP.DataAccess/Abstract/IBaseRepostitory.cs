@@ -36,15 +36,15 @@ namespace UnityETP.DataAccess.Abstract
 
             Task<TEntity> Add(TEntity entity);
 
-            Task<List<TEntity>> AddRange(List<TEntity> entity);
+            Task<List<TEntity>> AddRange(List<TEntity> entities);
 
             Task<TEntity> Update(TEntity entity);
 
-            Task<List<TEntity>> UpdateRange(List<TEntity> entity);
+            Task<List<TEntity>> UpdateRange(List<TEntity> entities);
 
             Task<TEntity> Delete(TEntity entity); // Soft Delete
 
-            Task<List<TEntity>> DeleteRange(List<TEntity> entity); // Soft Delete
+            Task<List<TEntity>> DeleteRange(List<TEntity> entities); // Soft Delete
 
             Task<TEntity> DeleteById(TPrimary id);// Soft Delete
 
@@ -52,7 +52,7 @@ namespace UnityETP.DataAccess.Abstract
 
             Task<TEntity> Remove(TEntity entity); // Hard Delete
 
-            Task<List<TEntity>> RemoveRange(List<TEntity> entity); // Hard Delete
+            Task<List<TEntity>> RemoveRange(List<TEntity> entities); // Hard Delete
         }
     }
 }
