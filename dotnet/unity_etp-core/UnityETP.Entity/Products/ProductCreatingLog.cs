@@ -21,6 +21,6 @@ namespace UnityETP.Entity.Products
         public int ProductId { get; set; }
 
         public AppUser User { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

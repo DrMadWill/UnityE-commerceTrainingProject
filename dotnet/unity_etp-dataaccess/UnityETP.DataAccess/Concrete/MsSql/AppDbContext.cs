@@ -4,7 +4,6 @@ using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Contacts;
 using UnityETP.Entity.Options;
-using UnityETP.Entity.Orders;
 using UnityETP.Entity.Organizations;
 using UnityETP.Entity.Payments;
 using UnityETP.Entity.Products;
@@ -16,9 +15,12 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 {
     public class AppDbContext : IdentityDbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-        }
+        //public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        //{
+        //}
+
+
+
 
         #region DbSet (Tables)
 
@@ -45,19 +47,19 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
         #region Contacts
 
-        public DbSet<Address> Addresses  { get; set; }
-        public DbSet<City> Cities  { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<OnlineAddress> OnlineAddresses  { get; set; }
-        public DbSet<Phone> Phones  { get; set; }
-        public DbSet<Region> Regions  { get; set; }
+        public DbSet<OnlineAddress> OnlineAddresses { get; set; }
+        public DbSet<Phone> Phones { get; set; }
+        public DbSet<Region> Regions { get; set; }
 
 
         #endregion
 
         #region Options
-        public DbSet<Entity.Options.Item> Items { get; set; }
+        public DbSet<Entity.Options.Item> OptionItem { get; set; }
         public DbSet<Option> Options { get; set; }
         #endregion
 
@@ -115,7 +117,7 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
         #region Vendors
         public DbSet<Vendor> Vendors { get; set; }
-        
+
         #region Orders
         public DbSet<Entity.Vendors.Orders.Order> VendorOrders { get; set; }
         public DbSet<Entity.Vendors.Orders.Detail> VendorOrderDetails { get; set; }
@@ -127,15 +129,93 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
         #endregion
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    base.OnConfiguring(optionsBuilder);
-        //    optionsBuilder.UseSqlServer("Data Source=Will;Initial Catalog=Unity_Ecommerce;Integrated Security=SSPI;MultipleActiveResultSets=True");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Data Source=Will;Initial Catalog=Unity_Ecommerce;Integrated Security=SSPI;MultipleActiveResultSets=True");
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            #region Relation
+            /// <summary>
+            /// One To Many => #OM  
+            /// One To One => #OO
+            /// Many To Many => #MM
+            /// </summary>
+
+            #region Blog
+            // Blog To Category #OM
+            builder.Entity<Blog>()
+                .HasOne(b => b.Category)
+                .WithMany(c => c.Blogs)
+                .HasForeignKey(dr => dr.CategoryId);
+
+            // Blog To User #OM
+            builder.Entity<Blog>()
+                .HasOne(b => b.User)
+                .WithMany(u => u.Blogs)
+                .HasForeignKey(dr => dr.UserId);
+            // Blog To  Detail #OO
+            builder.Entity<Blog>()
+                .HasOne(b => b.Detail)
+                .WithOne(d => d.Blog)
+                .HasForeignKey<Entity.Blogs.Detail>(dr => dr.Id);
+
+            // BlogToTag To Blog #MM
+            builder.Entity<BlogToTag>()
+                .HasOne(bt => bt.Blog)
+                .WithMany(b => b.BlogToTags)
+                .HasForeignKey(dr => dr.BlogId);
+            // BlogToTag To Tag #MM
+            builder.Entity<BlogToTag>()
+                .HasOne(bt => bt.Tag)
+                .WithMany(b => b.BlogToTags)
+                .HasForeignKey(dr => dr.TagId);
+
+
+            // Comment To Blog #OM
+            builder.Entity<Comment>()
+                .HasOne(c => c.Blog)
+                .WithMany(b => b.Comments)
+                .HasForeignKey(dr => dr.BlogId);
+
+            // Comment To User #OM
+            builder.Entity<Comment>()
+                .HasOne(c => c.User)
+                .WithMany(b => b.Comments)
+                .HasForeignKey(dr => dr.UserId);
+
+            #endregion
+
+            #region UserOrders
+
+            builder.Entity<Entity.Orders.Order>()
+                .HasOne(x => x.Detail)
+                .WithOne(x => x.UserOrder)
+                .HasForeignKey<Entity.Orders.Detail>(dr => dr.Id);
+
+            #endregion
+
+            builder.Entity<Prodcut>()
+                .HasOne(x => x.Detail)
+                .WithOne(x => x.Prodcut)
+                .HasForeignKey<Entity.Products.Detail>(dr => dr.Id);
+
+            builder.Entity<Organization>()
+                .HasOne(x => x.Vendor)
+                .WithOne(x => x.Organization)
+                .HasForeignKey<Vendor>(dr => dr.Id);
+
+
+            builder.Entity<Entity.Vendors.Orders.Order>()
+                .HasOne(x => x.Detail)
+                .WithOne(x => x.VendorOrder)
+                .HasForeignKey<Entity.Vendors.Orders.Detail>(dr => dr.Id);
+
+            #endregion
 
         }
     }

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
 using UnityETP.Entity.Shippings;
 using UnityETP.Entity.Validations;
+using UnityETP.Entity.Vendors;
 
 namespace UnityETP.Entity.Organizations
 {
@@ -28,6 +29,8 @@ namespace UnityETP.Entity.Organizations
         [Column] public string Image { get; set; }
 
         // Relation
+
+        public Vendor Vendor { get; set; }
 
         public Status Status { get; set; }
         public int StatusId { get; set; }

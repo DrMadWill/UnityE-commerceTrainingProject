@@ -25,10 +25,9 @@ namespace UnityETP.Entity.Blogs
 
         // Relation
         public Blog Blog { get; set; }
-
         public int BlogId { get; set; }
         public Comment ParentComment { get; set; }
-        public int ParentCommentId { get; set; }
+        public int? ParentCommentId { get; set; }
         public AppUser User { get; set; }
         public string UserId { get; set; }
     }

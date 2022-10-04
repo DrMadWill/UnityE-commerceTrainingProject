@@ -17,11 +17,10 @@ namespace UnityETP.Entity.Vendors
         [Column] public float Star { get; set; }
 
         // Relation
+        public Organization Organization { get; set; }
         public Color Color { get; set; }
-
         public int ColorId { get; set; }
         public IList<Prodcut> Prodcuts { get; set; }
-        public Organization Organization { get; set; }
         public IList<Order> VendorOrders { get; set; }
     }
 }
