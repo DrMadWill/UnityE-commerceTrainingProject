@@ -65,12 +65,12 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
             builder.Entity<Country>()
                 .HasData(
-                    new Country { Id = 1, Name = "Azerbaijan"},
+                    new Country { Id = 1, Name = "Azerbaijan" },
                     new Country { Id = 2, Name = "Turkey" },
                     new Country { Id = 3, Name = "United States" },
-                    new Country { Id = 4, Name = "USA"},
+                    new Country { Id = 4, Name = "USA" },
                     new Country { Id = 5, Name = "Georgia" },
-                    new Country { Id = 6, Name = "Italy"},
+                    new Country { Id = 6, Name = "Italy" },
                     new Country { Id = 7, Name = "Germany" },
                     new Country { Id = 8, Name = "Ukraine" }
                 );
@@ -78,25 +78,32 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
             builder.Entity<City>()
                 .HasData(
-                    new City { Id = 1, Name ="Baku"},
+                    new City { Id = 1, Name = "Baku" },
                     new City { Id = 2, Name = "Washington" },
                     new City { Id = 3, Name = "Ankara" },
-                    new City { Id = 4, Name ="London"}
+                    new City { Id = 4, Name = "London" }
                 );
 
             builder.Entity<Region>()
                 .HasData(
-                     new Region { Id =1, Name = "Yasamal"},
-                     new Region { Id =2, Name = "Ahamdli"},
-                     new Region { Id =3, Name = "Khatai"}
+                     new Region { Id = 1, Name = "Yasamal" },
+                     new Region { Id = 2, Name = "Ahamdli" },
+                     new Region { Id = 3, Name = "Khatai" }
                 );
 
             builder.Entity<Entity.Orders.Status>()
                 .HasData(
-                      new Entity.Orders.Status { Id = 1, Name = "Sealed",ColorId = 27},
-                      new Entity.Orders.Status { Id = 2, Name = "Buy",ColorId = 21},
-                      new Entity.Orders.Status { Id = 3, Name = "Shipping",ColorId = 25},
-                      new Entity.Orders.Status { Id = 4, Name = "Recovery",ColorId = 26}
+                      new Entity.Orders.Status { Id = 1, Name = "Sealed", ColorId = 27 },
+                      new Entity.Orders.Status { Id = 2, Name = "Buy", ColorId = 21 },
+                      new Entity.Orders.Status { Id = 3, Name = "Shipping", ColorId = 25 },
+                      new Entity.Orders.Status { Id = 4, Name = "Recovery", ColorId = 26 }
+                );
+            builder.Entity<Entity.Vendors.Orders.Status>()
+                .HasData(
+                      new Entity.Vendors.Orders.Status { Id = 1, Name = "Sealed", ColorId = 27 },
+                      new Entity.Vendors.Orders.Status { Id = 2, Name = "Buy", ColorId = 21 },
+                      new Entity.Vendors.Orders.Status { Id = 3, Name = "Shipping", ColorId = 25 },
+                      new Entity.Vendors.Orders.Status { Id = 4, Name = "Recovery", ColorId = 26 }
                 );
             builder.Entity<Entity.Organizations.Type>()
                 .HasData(
@@ -116,24 +123,24 @@ namespace UnityETP.DataAccess.Concrete.MsSql
                 );
             builder.Entity<Entity.Payments.Type>()
                 .HasData(
-                    new Entity.Payments.Type { Id = 1, Name = "Cash",ColorId = 22 },
-                    new Entity.Payments.Type { Id = 2, Name = "Card",ColorId = 29 }
+                    new Entity.Payments.Type { Id = 1, Name = "Cash", ColorId = 22, Icon = "" },
+                    new Entity.Payments.Type { Id = 2, Name = "Card", ColorId = 29, Icon = "" }
                 );
             builder.Entity<Entity.Products.Type>()
                 .HasData(
                     new Entity.Products.Type { Id = 1, Name = "Vegetables" },
                     new Entity.Products.Type { Id = 2, Name = "Dairy" },
-                    new Entity.Products.Type { Id = 2, Name = "Fruit" },
-                    new Entity.Products.Type { Id = 2, Name = "Flour" },
-                    new Entity.Products.Type { Id = 2, Name = "Meat" }
+                    new Entity.Products.Type { Id = 3, Name = "Fruit" },
+                    new Entity.Products.Type { Id = 4, Name = "Flour" },
+                    new Entity.Products.Type { Id = 5, Name = "Meat" }
                 );
             builder.Entity<Entity.Products.Status>()
                 .HasData(
                     new Entity.Products.Status { Id = 1, Name = "Hot", ColorId = 23 },
-                    new Entity.Products.Status { Id = 2, Name = "Seal", ColorId =24 },
-                    new Entity.Products.Status { Id = 2, Name = "New" , ColorId = 18 },
-                    new Entity.Products.Status { Id = 2, Name = "Best Seal" , ColorId = 20 },
-                    new Entity.Products.Status { Id = 2, Name = "Meat" , ColorId = 25 }
+                    new Entity.Products.Status { Id = 2, Name = "Seal", ColorId = 24 },
+                    new Entity.Products.Status { Id = 3, Name = "New", ColorId = 18 },
+                    new Entity.Products.Status { Id = 4, Name = "Best Seal", ColorId = 20 },
+                    new Entity.Products.Status { Id = 5, Name = "Meat", ColorId = 25 }
                 );
 
             builder.Entity<Entity.Products.Tag>()
@@ -142,12 +149,21 @@ namespace UnityETP.DataAccess.Concrete.MsSql
                     new Entity.Products.Tag { Id = 2, Name = "Organic" },
                     new Entity.Products.Tag { Id = 3, Name = "Brown" }
                 );
-            builder.Entity<Entity.Shippings.Status>()
+            //builder.Entity<Entity.Shippings.Status>()
+            //    .HasData(
+            //        new Entity.Shippings.Status { Id = 1, Name = "Loaded", IconId = 1,ColorId = 18 },
+            //        new Entity.Shippings.Status { Id = 2, Name = "Send", IconId = 1 ,ColorId =20},
+            //        new Entity.Shippings.Status { Id = 3, Name = "Arrive", IconId = 1, ColorId = 25 }
+            //    );
+
+            builder.Entity<Entity.Users.Status>()
                 .HasData(
-                    new Entity.Products.Status { Id = 1, Name = "Snack" },
-                    new Entity.Products.Status { Id = 2, Name = "Organic" },
-                    new Entity.Products.Status { Id = 3, Name = "Brown" }
+                    new Entity.Users.Status { Id = 1, Name = "Active" ,ColorId = 18},
+                    new Entity.Users.Status { Id = 2, Name = "New" , ColorId =23 },
+                    new Entity.Users.Status { Id = 3, Name = "Brown", ColorId =24 }
                 );
         }
+
+
     }
 }

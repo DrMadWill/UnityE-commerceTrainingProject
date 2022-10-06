@@ -15,15 +15,17 @@ namespace UnityETP.Entity.Vendors.Orders
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
 
+        // Relation
+        public Stock ProdcutStock { get; set; }
+        public int ProdcutStockId { get; set; }
+        public Order VendorOrder { get; set; }
+        public int OrderId { get; set; }
+
         [Column] public int Count { get; set; }
         [Column] public decimal Price { get; set; }
         [Column] public decimal Discount { get; set; }
 
-        // Relation
-        public Stock ProdcutStock { get; set; }
-
-        public int ProdcutStockId { get; set; }
-        public Order VendorOrder { get; set; }
-        public int OrderId { get; set; }
+     
+      
     }
 }

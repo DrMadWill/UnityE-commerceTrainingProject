@@ -218,6 +218,7 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
             #endregion
 
+            AppDbInitializer.ApplyDbSeedData(builder);
         }
     }
 }

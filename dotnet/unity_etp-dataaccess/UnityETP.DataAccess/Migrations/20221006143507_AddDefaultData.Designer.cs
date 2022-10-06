@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnityETP.DataAccess.Concrete.MsSql;
 
@@ -11,9 +12,10 @@ using UnityETP.DataAccess.Concrete.MsSql;
 namespace UnityETP.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221006143507_AddDefaultData")]
+    partial class AddDefaultData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -472,7 +474,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 1,
                             Code = "fff",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8178),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9530),
                             IsDelete = false,
                             Name = "White"
                         },
@@ -480,7 +482,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 2,
                             Code = "f8f9fa",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8180),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9533),
                             IsDelete = false,
                             Name = "Gray-100"
                         },
@@ -488,7 +490,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 3,
                             Code = "e9ecef",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8181),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9534),
                             IsDelete = false,
                             Name = "Gray-200"
                         },
@@ -496,7 +498,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 4,
                             Code = "dee2e6",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8182),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9536),
                             IsDelete = false,
                             Name = "Gray-300"
                         },
@@ -504,7 +506,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 5,
                             Code = "cfdbe6",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8184),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9537),
                             IsDelete = false,
                             Name = "Gray-400"
                         },
@@ -512,7 +514,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 6,
                             Code = "adb5bd",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8185),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9538),
                             IsDelete = false,
                             Name = "Gray-500"
                         },
@@ -520,7 +522,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 7,
                             Code = "6c757d",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8186),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9540),
                             IsDelete = false,
                             Name = "Gray-600"
                         },
@@ -528,7 +530,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 8,
                             Code = "383e50",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8188),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9541),
                             IsDelete = false,
                             Name = "Gray-700"
                         },
@@ -536,7 +538,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 9,
                             Code = "2f3446",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8189),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9543),
                             IsDelete = false,
                             Name = "Gray-800"
                         },
@@ -544,7 +546,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 10,
                             Code = "1e2231",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8190),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9544),
                             IsDelete = false,
                             Name = "Gray-900"
                         },
@@ -552,7 +554,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 11,
                             Code = "000",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8191),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9545),
                             IsDelete = false,
                             Name = "Black"
                         },
@@ -560,7 +562,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 12,
                             Code = "4f5d77",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8193),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9547),
                             IsDelete = false,
                             Name = "Body"
                         },
@@ -568,7 +570,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 13,
                             Code = "495057",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8194),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9548),
                             IsDelete = false,
                             Name = "Heading"
                         },
@@ -576,7 +578,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 14,
                             Code = "292f46",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8196),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9549),
                             IsDelete = false,
                             Name = "Menu"
                         },
@@ -584,7 +586,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 15,
                             Code = "f7f8f9",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8197),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9560),
                             IsDelete = false,
                             Name = "Bg-grey"
                         },
@@ -592,7 +594,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 16,
                             Code = "4d5368",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8198),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9568),
                             IsDelete = false,
                             Name = "Ligth"
                         },
@@ -600,7 +602,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 17,
                             Code = "222736",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8200),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9570),
                             IsDelete = false,
                             Name = "Dark-Body"
                         },
@@ -608,7 +610,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 18,
                             Code = "3BB77E",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8201),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9571),
                             IsDelete = false,
                             Name = "Brand"
                         },
@@ -616,7 +618,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 19,
                             Code = "29A56C",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8202),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9572),
                             IsDelete = false,
                             Name = "Brand-Dark"
                         },
@@ -624,7 +626,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 20,
                             Code = "5897fb",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8203),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9574),
                             IsDelete = false,
                             Name = "Blue"
                         },
@@ -632,7 +634,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 21,
                             Code = "782cf1",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8205),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9575),
                             IsDelete = false,
                             Name = "indigo"
                         },
@@ -640,7 +642,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 22,
                             Code = "7850c2",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8206),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9576),
                             IsDelete = false,
                             Name = "purple"
                         },
@@ -648,7 +650,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 23,
                             Code = "d63384",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8208),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9579),
                             IsDelete = false,
                             Name = "pink"
                         },
@@ -656,7 +658,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 24,
                             Code = "ff3551",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8209),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9580),
                             IsDelete = false,
                             Name = "red"
                         },
@@ -664,7 +666,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 25,
                             Code = "fd8a14",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8210),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9581),
                             IsDelete = false,
                             Name = "orange"
                         },
@@ -672,7 +674,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 26,
                             Code = "ffb300",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8212),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9583),
                             IsDelete = false,
                             Name = "yellow"
                         },
@@ -680,7 +682,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 27,
                             Code = "3ed092",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8213),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9584),
                             IsDelete = false,
                             Name = "green"
                         },
@@ -688,7 +690,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 28,
                             Code = "19b989",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8214),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9586),
                             IsDelete = false,
                             Name = "teal"
                         },
@@ -696,7 +698,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 29,
                             Code = "18a1b7",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8215),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9590),
                             IsDelete = false,
                             Name = "cyan"
                         });
@@ -738,7 +740,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 1,
                             Code = "md-qr_code",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8364),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9752),
                             IsDelete = false,
                             Name = "Orders"
                         },
@@ -746,7 +748,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 2,
                             Code = "md-shopping_bag",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8365),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9754),
                             IsDelete = false,
                             Name = "Products"
                         },
@@ -754,7 +756,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 3,
                             Code = "md-shopping_cart",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8366),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9755),
                             IsDelete = false,
                             Name = "Orders-2"
                         },
@@ -762,7 +764,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 4,
                             Code = "md-store",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8367),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9756),
                             IsDelete = false,
                             Name = "Sellers"
                         },
@@ -770,7 +772,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 5,
                             Code = "md-add_box",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8368),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9757),
                             IsDelete = false,
                             Name = "Add"
                         },
@@ -778,7 +780,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 6,
                             Code = "md-monetization_on",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8369),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9758),
                             IsDelete = false,
                             Name = "Transactions"
                         },
@@ -786,7 +788,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 7,
                             Code = "md-person",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8370),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9760),
                             IsDelete = false,
                             Name = "Preson"
                         },
@@ -794,7 +796,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 8,
                             Code = "md-comment",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8370),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9761),
                             IsDelete = false,
                             Name = "Reviews"
                         },
@@ -802,7 +804,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 9,
                             Code = "md-stars",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8371),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9761),
                             IsDelete = false,
                             Name = "Brands"
                         },
@@ -810,7 +812,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 10,
                             Code = "md-pie_chart",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8372),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9763),
                             IsDelete = false,
                             Name = "Chart"
                         },
@@ -818,7 +820,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 11,
                             Code = "md-local_offer",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8373),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9764),
                             IsDelete = false,
                             Name = "Tag"
                         },
@@ -826,7 +828,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 12,
                             Code = "md-settings",
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8374),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9765),
                             IsDelete = false,
                             Name = "Setting"
                         });
@@ -973,28 +975,28 @@ namespace UnityETP.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8423),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9813),
                             IsDelete = false,
                             Name = "Baku"
                         },
                         new
                         {
                             Id = 2,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8424),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9816),
                             IsDelete = false,
                             Name = "Washington"
                         },
                         new
                         {
                             Id = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8425),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9817),
                             IsDelete = false,
                             Name = "Ankara"
                         },
                         new
                         {
                             Id = 4,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8426),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9818),
                             IsDelete = false,
                             Name = "London"
                         });
@@ -1062,56 +1064,56 @@ namespace UnityETP.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8395),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9788),
                             IsDelete = false,
                             Name = "Azerbaijan"
                         },
                         new
                         {
                             Id = 2,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8396),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9790),
                             IsDelete = false,
                             Name = "Turkey"
                         },
                         new
                         {
                             Id = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8397),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9791),
                             IsDelete = false,
                             Name = "United States"
                         },
                         new
                         {
                             Id = 4,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8398),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9792),
                             IsDelete = false,
                             Name = "USA"
                         },
                         new
                         {
                             Id = 5,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8398),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9792),
                             IsDelete = false,
                             Name = "Georgia"
                         },
                         new
                         {
                             Id = 6,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8400),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9793),
                             IsDelete = false,
                             Name = "Italy"
                         },
                         new
                         {
                             Id = 7,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8400),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9794),
                             IsDelete = false,
                             Name = "Germany"
                         },
                         new
                         {
                             Id = 8,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8401),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9795),
                             IsDelete = false,
                             Name = "Ukraine"
                         });
@@ -1234,21 +1236,21 @@ namespace UnityETP.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8441),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9835),
                             IsDelete = false,
                             Name = "Yasamal"
                         },
                         new
                         {
                             Id = 2,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8444),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9837),
                             IsDelete = false,
                             Name = "Ahamdli"
                         },
                         new
                         {
                             Id = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8445),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9838),
                             IsDelete = false,
                             Name = "Khatai"
                         });
@@ -1503,7 +1505,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 1,
                             ColorId = 27,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8461),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9856),
                             IsDelete = false,
                             Name = "Sealed"
                         },
@@ -1511,7 +1513,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 2,
                             ColorId = 21,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8463),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9857),
                             IsDelete = false,
                             Name = "Buy"
                         },
@@ -1519,7 +1521,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 3,
                             ColorId = 25,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8464),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9858),
                             IsDelete = false,
                             Name = "Shipping"
                         },
@@ -1527,7 +1529,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 4,
                             ColorId = 26,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8464),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9859),
                             IsDelete = false,
                             Name = "Recovery"
                         });
@@ -1693,40 +1695,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("OrganizationStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ColorId = 22,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8862),
-                            IsDelete = false,
-                            Name = "All Time Work"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ColorId = 18,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8864),
-                            IsDelete = false,
-                            Name = "Now Work"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ColorId = 20,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8865),
-                            IsDelete = false,
-                            Name = "Work Started"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ColorId = 10,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8866),
-                            IsDelete = false,
-                            Name = "Work Ended"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Organizations.Type", b =>
@@ -1759,48 +1727,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("OrganizationTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ColorId = 27,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8838),
-                            IsDelete = false,
-                            Name = "Buy And Seal"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ColorId = 21,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8840),
-                            IsDelete = false,
-                            Name = "Only Buy"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ColorId = 25,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8841),
-                            IsDelete = false,
-                            Name = "Only Seal"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ColorId = 28,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8843),
-                            IsDelete = false,
-                            Name = "Shipping"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ColorId = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8843),
-                            IsDelete = false,
-                            Name = "Not Selected Type"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Payments.Card", b =>
@@ -1903,26 +1829,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("PaymentTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ColorId = 22,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8881),
-                            Icon = "",
-                            IsDelete = false,
-                            Name = "Cash"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ColorId = 29,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8883),
-                            Icon = "",
-                            IsDelete = false,
-                            Name = "Card"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Products.Brand", b =>
@@ -2313,48 +2219,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("ProductStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ColorId = 23,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8916),
-                            IsDelete = false,
-                            Name = "Hot"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ColorId = 24,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8918),
-                            IsDelete = false,
-                            Name = "Seal"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ColorId = 18,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8919),
-                            IsDelete = false,
-                            Name = "New"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            ColorId = 20,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8921),
-                            IsDelete = false,
-                            Name = "Best Seal"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ColorId = 25,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8921),
-                            IsDelete = false,
-                            Name = "Meat"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Products.Stock", b =>
@@ -2464,29 +2328,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductTags");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8936),
-                            IsDelete = false,
-                            Name = "Snack"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8938),
-                            IsDelete = false,
-                            Name = "Organic"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8939),
-                            IsDelete = false,
-                            Name = "Brown"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Products.Type", b =>
@@ -2514,43 +2355,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8894),
-                            IsDelete = false,
-                            Name = "Vegetables"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8896),
-                            IsDelete = false,
-                            Name = "Dairy"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8897),
-                            IsDelete = false,
-                            Name = "Fruit"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8898),
-                            IsDelete = false,
-                            Name = "Flour"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8899),
-                            IsDelete = false,
-                            Name = "Meat"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Shippings.Shipping", b =>
@@ -2694,32 +2498,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("UserStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ColorId = 18,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8957),
-                            IsDelete = false,
-                            Name = "Active"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ColorId = 23,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8960),
-                            IsDelete = false,
-                            Name = "New"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ColorId = 24,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8961),
-                            IsDelete = false,
-                            Name = "Brown"
-                        });
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Vendors.Orders.Detail", b =>
@@ -2881,7 +2659,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 1,
                             ColorId = 27,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8481),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9877),
                             IsDelete = false,
                             Name = "Sealed"
                         },
@@ -2889,7 +2667,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 2,
                             ColorId = 21,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8484),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9880),
                             IsDelete = false,
                             Name = "Buy"
                         },
@@ -2897,7 +2675,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 3,
                             ColorId = 25,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8485),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9881),
                             IsDelete = false,
                             Name = "Shipping"
                         },
@@ -2905,7 +2683,7 @@ namespace UnityETP.DataAccess.Migrations
                         {
                             Id = 4,
                             ColorId = 26,
-                            CreateAt = new DateTime(2022, 10, 6, 18, 39, 59, 351, DateTimeKind.Local).AddTicks(8486),
+                            CreateAt = new DateTime(2022, 10, 6, 18, 35, 6, 757, DateTimeKind.Local).AddTicks(9881),
                             IsDelete = false,
                             Name = "Recovery"
                         });

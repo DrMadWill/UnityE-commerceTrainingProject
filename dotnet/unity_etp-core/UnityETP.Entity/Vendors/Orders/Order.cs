@@ -19,7 +19,6 @@ namespace UnityETP.Entity.Vendors.Orders
 
         // Relation
         public Status Status { get; set; }
-
         public int StatusId { get; set; }
         public Payment Payment { get; set; }
         public int PaymentId { get; set; }

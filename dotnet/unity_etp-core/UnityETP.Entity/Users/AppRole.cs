@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace UnityETP.Entity.Users
 {
     /// <summary>
-    /// Application Roles Table ()
+    /// Application Roles Table 
     /// </summary>
     public class AppRole : IdentityRole, IBaseEntity<string>
     {
