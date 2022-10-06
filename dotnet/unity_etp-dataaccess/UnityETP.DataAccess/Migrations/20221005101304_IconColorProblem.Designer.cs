@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnityETP.DataAccess.Concrete.MsSql;
 
@@ -11,9 +12,10 @@ using UnityETP.DataAccess.Concrete.MsSql;
 namespace UnityETP.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221005101304_IconColorProblem")]
+    partial class IconColorProblem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -481,6 +483,9 @@ namespace UnityETP.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nchar(50)");
 
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -496,6 +501,8 @@ namespace UnityETP.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
 
                     b.ToTable("Icons");
                 });
@@ -1091,12 +1098,6 @@ namespace UnityETP.DataAccess.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("OrganizationTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrganizationTypesId")
-                        .HasColumnType("int");
-
                     b.Property<int>("StatusId")
                         .HasColumnType("int");
 
@@ -1106,8 +1107,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ContactId");
-
-                    b.HasIndex("OrganizationTypesId");
 
                     b.HasIndex("StatusId");
 
@@ -1216,38 +1215,6 @@ namespace UnityETP.DataAccess.Migrations
                     b.HasIndex("ColorId");
 
                     b.ToTable("OrganizationStatuses");
-                });
-
-            modelBuilder.Entity("UnityETP.Entity.Organizations.Type", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime?>("UpdateAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ColorId");
-
-                    b.ToTable("OrganizationTypes");
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Payments.Card", b =>
@@ -2398,6 +2365,17 @@ namespace UnityETP.DataAccess.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("UnityETP.Entity.Commons.Icon", b =>
+                {
+                    b.HasOne("UnityETP.Entity.Commons.Color", "Color")
+                        .WithMany("Icons")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+                });
+
             modelBuilder.Entity("UnityETP.Entity.Contacts.Address", b =>
                 {
                     b.HasOne("UnityETP.Entity.Contacts.City", "City")
@@ -2596,12 +2574,6 @@ namespace UnityETP.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("UnityETP.Entity.Organizations.Type", "OrganizationTypes")
-                        .WithMany("Organizations")
-                        .HasForeignKey("OrganizationTypesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("UnityETP.Entity.Organizations.Status", "Status")
                         .WithMany("Organizations")
                         .HasForeignKey("StatusId")
@@ -2609,8 +2581,6 @@ namespace UnityETP.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Contact");
-
-                    b.Navigation("OrganizationTypes");
 
                     b.Navigation("Status");
                 });
@@ -2644,24 +2614,11 @@ namespace UnityETP.DataAccess.Migrations
 
             modelBuilder.Entity("UnityETP.Entity.Organizations.Status", b =>
                 {
-                    b.HasOne("UnityETP.Entity.Commons.Color", "Color")
+                    b.HasOne("UnityETP.Entity.Commons.Color", null)
                         .WithMany("OrganizationStatuses")
                         .HasForeignKey("ColorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Color");
-                });
-
-            modelBuilder.Entity("UnityETP.Entity.Organizations.Type", b =>
-                {
-                    b.HasOne("UnityETP.Entity.Commons.Color", "Color")
-                        .WithMany("OrganizationTypes")
-                        .HasForeignKey("ColorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Color");
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Payments.Payment", b =>
@@ -2686,7 +2643,7 @@ namespace UnityETP.DataAccess.Migrations
             modelBuilder.Entity("UnityETP.Entity.Payments.Type", b =>
                 {
                     b.HasOne("UnityETP.Entity.Commons.Color", "Color")
-                        .WithMany("PaymentTypes")
+                        .WithMany("Types")
                         .HasForeignKey("ColorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -3085,19 +3042,19 @@ namespace UnityETP.DataAccess.Migrations
                 {
                     b.Navigation("Brands");
 
+                    b.Navigation("Icons");
+
                     b.Navigation("OnlineAddresses");
 
                     b.Navigation("Options");
 
                     b.Navigation("OrganizationStatuses");
 
-                    b.Navigation("OrganizationTypes");
-
-                    b.Navigation("PaymentTypes");
-
                     b.Navigation("ProductStatuses");
 
                     b.Navigation("ShippingStatus");
+
+                    b.Navigation("Types");
 
                     b.Navigation("UserOrderStatuses");
 
@@ -3184,11 +3141,6 @@ namespace UnityETP.DataAccess.Migrations
                 });
 
             modelBuilder.Entity("UnityETP.Entity.Organizations.Status", b =>
-                {
-                    b.Navigation("Organizations");
-                });
-
-            modelBuilder.Entity("UnityETP.Entity.Organizations.Type", b =>
                 {
                     b.Navigation("Organizations");
                 });

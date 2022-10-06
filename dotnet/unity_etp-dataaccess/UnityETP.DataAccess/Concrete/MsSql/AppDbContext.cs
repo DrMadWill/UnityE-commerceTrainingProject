@@ -76,6 +76,7 @@ namespace UnityETP.DataAccess.Concrete.MsSql
         public DbSet<Person> OrganizationPeople { get; set; }
         public DbSet<Position> OrganizationPositions { get; set; }
         public DbSet<Entity.Organizations.Status> OrganizationStatuses { get; set; }
+        public DbSet<Entity.Organizations.Type> OrganizationTypes { get; set; }
         #endregion
 
         #region Payments

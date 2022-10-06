@@ -26,8 +26,6 @@ namespace UnityETP.Entity.Commons
 
         // Relation
 
-        public Color Color { get; set; }
-        public int ColorId { get; set; }
         public IList<OnlineAddress> OnlineAddresses { get; set; }
         public IList<Shippings.Status> ShippStatus { get; set; }
         public IList<Option> Options { get; set; }

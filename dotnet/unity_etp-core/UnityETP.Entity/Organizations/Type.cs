@@ -1,15 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Validations;
 
 namespace UnityETP.Entity.Organizations
 {
     /// <summary>
-    /// Statuses Type
+    /// Organization Types
     /// </summary>
-    [Table("OrganizationStatuses")]
-    public class Status : BaseEntity<int>
+    [Table("OrganizationTypes")]
+    public class Type:BaseEntity<int>
     {
         [Key]
         [Column]

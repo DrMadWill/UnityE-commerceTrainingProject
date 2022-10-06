@@ -34,6 +34,8 @@ namespace UnityETP.Entity.Options
         public Icon Icon { get; set; }
         public int IconId { get; set; }
 
+        public Color Color { get; set; }
+        public int ColorId { get; set; }
         public IList<Item> Items { get; set; }
         public IList<Authorization> Authorizations { get; set; }
     }

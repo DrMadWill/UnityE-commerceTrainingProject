@@ -32,6 +32,8 @@ namespace UnityETP.Entity.Organizations
 
         public Vendor Vendor { get; set; }
 
+        public Organizations.Type OrganizationTypes { get; set; }
+        public int OrganizationTypeId { get; set; }
         public Status Status { get; set; }
         public int StatusId { get; set; }
 

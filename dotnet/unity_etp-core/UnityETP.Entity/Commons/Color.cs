@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Options;
 using UnityETP.Entity.Products;
 using UnityETP.Entity.Validations;
 
@@ -26,14 +28,16 @@ namespace UnityETP.Entity.Commons
 
         // Relation
         public IList<Orders.Status> UserOrderStatuses { get; set; }
-
         public IList<Vendors.Orders.Status> VendorOrderStatuses { get; set; }
         public IList<Organizations.Status> OrganizationStatuses { get; set; }
         public IList<Products.Status> ProductStatuses { get; set; }
         public IList<Users.Status> UserStatuses { get; set; }
+        public IList<Shippings.Status> ShippingStatus { get; set; }
 
-        public IList<Icon> Icons { get; set; }
-        public IList<Payments.Type> Types { get; set; }
+        public IList<Option> Options { get; set; }
+        public IList<OnlineAddress> OnlineAddresses { get; set; }
+        public IList<Payments.Type> PaymentTypes { get; set; }
+        public IList<Organizations.Type> OrganizationTypes { get; set; }
         public IList<Brand> Brands { get; set; }
     }
 }

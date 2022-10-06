@@ -29,6 +29,10 @@ namespace UnityETP.Entity.Contacts
         public Icon Icon { get; set; }
 
         public int IconId { get; set; }
+
+        public Color Color { get; set; }
+        public int ColorId { get; set; }
+
         public Contact Contact { get; set; }
         public int ContactId { get; set; }
     }
