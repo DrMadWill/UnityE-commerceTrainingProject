@@ -1,0 +1,87 @@
+﻿
+using UnityETP.Entity.Blogs;
+using UnityETP.Entity.Commons;
+using UnityETP.Entity.Contacts;
+using UnityETP.Entity.Options;
+using UnityETP.Entity.Organizations;
+using UnityETP.Entity.Payments;
+using UnityETP.Entity.Products;
+
+namespace UnityETP.DataAccess.Abstract
+{
+    public interface IUnitOfWork
+    {
+        #region Blog
+
+        public IBaseRepostitory<Blog,int> BlogRepostitory { get; set; }
+        public IBaseRepostitory<BlogToTag,int> BlogToTagRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Blogs.Category,int> BlogCategoryRepostitory { get; set; }
+        public IBaseRepostitory<Comment,int> BlogCommentRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Blogs.Detail,int> BlogDetailRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Blogs.Tag,int> BlogTagRepostitory { get; set; }
+        #endregion
+
+        #region Commons
+        public IBaseRepostitory<Color, int> ColorRepostitory { get; set; }
+        public IBaseRepostitory<Icon, int> IconRepostitory { get; set; }
+        public IBaseRepostitory<Slider, int> SliderRepostitory { get; set; }
+        public IBaseRepostitory<SucScribe, int> SucScribeRepostitory { get; set; }
+        #endregion
+
+        #region Contacts
+        public IBaseRepostitory<Address, int> AddressRepostitory { get; set; } 
+        public IBaseRepostitory<City, int> CityRepostitory { get; set; }  
+        public IBaseRepostitory<Contact, int> ContactRepostitory { get; set; }  
+        public IBaseRepostitory<Country, int> CountryRepostitory { get; set; }  
+        public IBaseRepostitory<OnlineAddress, int> OnlineAddressRepostitory { get; set; }
+        public IBaseRepostitory<Phone, int> PhoneRepostitory { get; set; }
+        public IBaseRepostitory<Region, int> RegionRepostitory { get; set; }
+        #endregion
+
+        #region Option
+        public IBaseRepostitory<Option, int> OptionRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Options.Item, int> OptionItemRepostitory { get; set; }
+        #endregion
+
+        #region Order
+        public IBaseRepostitory<Entity.Orders.Order, int> UserOrderRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Orders.Detail, int> UserOrderDetailRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Orders.Item, int> UserOrderItemRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Orders.Status, int> UserOrderStatusRepostitory { get; set; }
+
+        #endregion
+
+        #region Organizations
+        public IBaseRepostitory<Organization, int> OrganizationRepostitory { get; set; }
+        public IBaseRepostitory<Person, int> OrganizationPersonRepostitory { get; set; }
+        public IBaseRepostitory<Position, int> OrganizationPositionRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Organizations.Type, int> OrganizationTypeRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Organizations.Status, int> OrganizationStatusRepostitory { get; set; }
+
+        #endregion
+
+        #region Payments
+        public IBaseRepostitory<Card, int> PaymentCardRepostitory { get; set; }
+        public IBaseRepostitory<Payment, int> PaymentRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Payments.Type, int> PaymentTypeRepostitory { get; set; }
+
+        #endregion
+
+        #region Products
+        public IBaseRepostitory<Brand, int> ProdutBrandRepostitory { get; set; }
+        public IBaseRepostitory<Prodcut, int> ProdcutRepostitory { get; set; }
+        public IBaseRepostitory<Image, int> ProductImageRepostitory { get; set; }
+        public IBaseRepostitory<ProductCreatingLog, int> ProductCreatingLogRepostitory { get; set; }
+        public IBaseRepostitory<ProductToTag, int> ProductToTagRepostitory { get; set; }
+        public IBaseRepostitory<Review, int> ProductReviewRepostitory { get; set; }
+        public IBaseRepostitory<Size, int> ProductSizeRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.Status, int> ProductStatusRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.Tag, int> ProductTagRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.Type, int> ProductTypeRepostitory { get; set; }
+        public IBaseRepostitory<Stock, int> ProductStockRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.Detail, int> ProductDetailRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.Category, int> ProductCategoryRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Products.SubCategory, int> ProductSubCategoryRepostitory { get; set; }
+        #endregion
+    }
+}
