@@ -19,7 +19,23 @@ namespace UnityETP.DataAccess.Concrete.MsSql
         //{
         //}
 
+        #region Sql Function
+        //ALTER FUNCTION IsUniqBlogToTagCONSTRAINT(@BlogId int, @TagId int)
+        //RETURNS BIT
+        //AS
+        //BEGIN
+        // DECLARE @CountSetected INT
+        // SELECT @CountSetected = COUNT(*) FROM[dbo].[BlogToTags]
+        //        WHERE BlogId = @BlogId AND TagId = @TagId
+        // IF(@CountSetected > 0)
 
+        //    BEGIN
+        //        RETURN 1
+
+        //    END
+        // RETURN 0
+        //END
+        #endregion
 
 
         #region DbSet (Tables)

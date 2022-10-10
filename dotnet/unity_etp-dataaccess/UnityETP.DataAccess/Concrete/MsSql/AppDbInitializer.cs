@@ -149,12 +149,12 @@ namespace UnityETP.DataAccess.Concrete.MsSql
                     new Entity.Products.Tag { Id = 2, Name = "Organic" },
                     new Entity.Products.Tag { Id = 3, Name = "Brown" }
                 );
-            //builder.Entity<Entity.Shippings.Status>()
-            //    .HasData(
-            //        new Entity.Shippings.Status { Id = 1, Name = "Loaded", IconId = 1,ColorId = 18 },
-            //        new Entity.Shippings.Status { Id = 2, Name = "Send", IconId = 1 ,ColorId =20},
-            //        new Entity.Shippings.Status { Id = 3, Name = "Arrive", IconId = 1, ColorId = 25 }
-            //    );
+            builder.Entity<Entity.Shippings.Status>()
+                .HasData(
+                    new Entity.Shippings.Status { Id = 1, Name = "Loaded", IconId = 1, ColorId = 18 },
+                    new Entity.Shippings.Status { Id = 2, Name = "Send", IconId = 1, ColorId = 20 },
+                    new Entity.Shippings.Status { Id = 3, Name = "Arrive", IconId = 1, ColorId = 25 }
+                );
 
             builder.Entity<Entity.Users.Status>()
                 .HasData(
