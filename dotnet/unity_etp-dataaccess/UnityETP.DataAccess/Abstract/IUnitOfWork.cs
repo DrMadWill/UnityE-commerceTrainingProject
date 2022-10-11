@@ -6,6 +6,9 @@ using UnityETP.Entity.Options;
 using UnityETP.Entity.Organizations;
 using UnityETP.Entity.Payments;
 using UnityETP.Entity.Products;
+using UnityETP.Entity.Shippings;
+using UnityETP.Entity.Users;
+using UnityETP.Entity.Vendors;
 
 namespace UnityETP.DataAccess.Abstract
 {
@@ -82,6 +85,31 @@ namespace UnityETP.DataAccess.Abstract
         public IBaseRepostitory<Entity.Products.Detail, int> ProductDetailRepostitory { get; set; }
         public IBaseRepostitory<Entity.Products.Category, int> ProductCategoryRepostitory { get; set; }
         public IBaseRepostitory<Entity.Products.SubCategory, int> ProductSubCategoryRepostitory { get; set; }
+        #endregion
+
+        #region Shippings
+        public IBaseRepostitory<Shipping, int> ShippingRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Shippings.Status, int> ShippingStatusRepostitory { get; set; }
+        #endregion
+
+        #region AppUsers
+        public IBaseRepostitory<AppUser, string> AppUserRepostitory { get; set; }
+        public IBaseRepostitory<AppRole, string> AppRoleRepostitory { get; set; }
+        public IBaseRepostitory<Authorization, int> AuthorizationRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Users.Status, int> AppUserStatusRepostitory { get; set; }
+        #endregion
+
+        #region Vendors
+        public IBaseRepostitory<Vendor, int> VendorRepostitory { get; set; }
+
+        #region Orders
+        public IBaseRepostitory<Entity.Vendors.Orders.Order, int> VendorOrderRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Vendors.Orders.Detail, int> VendorOrderDetailRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Vendors.Orders.Item, int> VendorOrderItemRepostitory { get; set; }
+        public IBaseRepostitory<Entity.Vendors.Orders.Status, int> VendorOrderStatusRepostitory { get; set; }
+
+        #endregion
+
         #endregion
     }
 }
