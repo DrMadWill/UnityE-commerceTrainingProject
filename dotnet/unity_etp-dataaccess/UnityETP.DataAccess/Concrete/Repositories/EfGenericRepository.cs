@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using UnityETP.DataAccess.Abstract;
 using UnityETP.DataAccess.Concrete.MsSql;
 using UnityETP.Entity;
-using static UnityETP.DataAccess.Abstract.IBaseRepostitory;
+
 
 namespace UnityETP.DataAccess.Concrete.Repositories
 {
