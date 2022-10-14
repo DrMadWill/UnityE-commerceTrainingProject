@@ -7,7 +7,7 @@ using UnityETP.Entity.Blogs;
 
 namespace Unity_ETP.Business.Abstract.Blogs
 {
-    public interface IBlogRepository : IBaseRepository<Blog, int>
+    public interface IBlogRepository : IBaseService<Blog, int>
     {
 
     }

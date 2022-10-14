@@ -7,7 +7,7 @@ using UnityETP.Entity;
 
 namespace Unity_ETP.Business.Abstract
 {
-    public  interface IBaseRepository<TEntity,TPrimary> 
+    public  interface IBaseService<TEntity,TPrimary> 
         where TEntity : IBaseEntity<TPrimary>
     {
         Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete=false);

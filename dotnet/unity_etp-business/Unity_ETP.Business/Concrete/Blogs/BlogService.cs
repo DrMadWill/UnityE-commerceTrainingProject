@@ -4,15 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Unity_ETP.Business.Abstract.Blogs;
+using UnityETP.DataAccess.Abstract;
 using UnityETP.Entity.Blogs;
 
 namespace Unity_ETP.Business.Concrete.Blogs
 {
-    public class BlogRepository : IBlogRepository
+    public class BlogService : IBlogRepository
     {
-        public Task<Blog> AddAsync(Blog entity)
+        readonly IUnitOfWork _unitOfWork;
+
+        public BlogService(IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+        }
+
+        public async Task<Blog> AddAsync(Blog entity)
+        {
+            if (entity == null && entity.Detail == null) return null;
+            
+            await _unitOfWork.BlogRepostitory.Add(entity);
+
+
+
         }
 
         public Task<Blog> DeleteAsync(int id)

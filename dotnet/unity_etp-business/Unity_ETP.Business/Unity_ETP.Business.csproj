@@ -11,4 +11,8 @@
     <ProjectReference Include="..\..\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BusinessHelpers\" />
+  </ItemGroup>
+
 </Project>

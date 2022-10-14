@@ -26,12 +26,12 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return query;
         }
 
-        public async Task<List<TEntity>> GetAllList(bool isNotSelectSoftDelete = true)
+        public async Task<List<TEntity>> GetAllListAsync(bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).ToListAsync();
         }
 
-        public async Task<List<TEntity>> GetAllListIncluding(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
+        public async Task<List<TEntity>> GetAllListIncludingAsync(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             return await GetAllIncluding(isNotSelectSoftDelete, includeProperties).ToListAsync();
         }
@@ -56,32 +56,32 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return query.Where(predicate);
         }
 
-        public async Task<TEntity> GetFrist(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync(predicate);
         }
 
-        public async Task<TEntity> GetLast(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync(predicate);
         }
 
-        public async Task<bool> Alll(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<bool> AllAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).AllAsync(predicate);
         }
 
-        public async Task<bool> Any(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).AnyAsync(predicate);
         }
 
-        public async Task<int> Count(bool isNotSelectSoftDelete = true)
+        public async Task<int> CountAsync(bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).CountAsync();
         }
 
-        public async Task<int> Count(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
         {
             return await GetAll(isNotSelectSoftDelete).CountAsync(predicate);
         }
@@ -91,21 +91,21 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
         }
 
-        public async Task<TEntity> Add(TEntity entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
             entity.CreateAt = DateTime.Now;
             await Table.AddAsync(entity);
             return entity;
         }
 
-        public async Task<List<TEntity>> AddRange(List<TEntity> entities)
+        public async Task<List<TEntity>> AddRangeAsync(List<TEntity> entities)
         {
             entities.ForEach(entitiy => entitiy.CreateAt = DateTime.Now);
             await Table.AddRangeAsync(entities);
             return entities;
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public async Task<TEntity> UpdateAsync(TEntity entity)
         {
             entity.UpdateAt = DateTime.Now;
             Table.Update(entity);
@@ -113,7 +113,7 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return entity;
         }
 
-        public async Task<List<TEntity>> UpdateRange(List<TEntity> entities)
+        public async Task<List<TEntity>> UpdateRangeAsync(List<TEntity> entities)
         {
             entities.ForEach(entity => entity.UpdateAt = DateTime.Now);
             Table.UpdateRange(entities);
@@ -121,7 +121,7 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return entities;
         }
 
-        public async Task<TEntity> Delete(TEntity entity)
+        public async Task<TEntity> DeleteAsync(TEntity entity)
         {
             entity.IsDelete = true;
             Table.Update(entity);
@@ -129,7 +129,7 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return entity;
         }
 
-        public async Task<List<TEntity>> DeleteRange(List<TEntity> entities)
+        public async Task<List<TEntity>> DeleteRangeAsync(List<TEntity> entities)
         {
             entities.ForEach((e) => e.IsDelete = true);
             Table.UpdateRange(entities);
@@ -137,31 +137,31 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return entities;
         }
 
-        public async Task DeleteWhere(Expression<Func<TEntity, bool>> predicate)
+        public async Task DeleteWhereAsync(Expression<Func<TEntity, bool>> predicate)
         {
             List<TEntity> entities = FindAllBy(predicate).ToList();
-            await DeleteRange(entities);
+            await DeleteRangeAsync(entities);
             //foreach (var entity in entities)
             //{
             //    _dbContext.Entry(entity).State = EntityState.Deleted;
             //}
         }
 
-        public async Task<TEntity> DeleteById(TPrimary id)
+        public async Task<TEntity> DeleteByIdAsync(TPrimary id)
         {
-            var entity = await GetFrist(x => x.Id.Equals(id));
+            var entity = await GetFristAsync(x => x.Id.Equals(id));
             if (entity == null) return null;
-            return await Delete(entity);
+            return await DeleteAsync(entity);
         }
 
-        public async Task<TEntity> Remove(TEntity entity) // Hard Delete
+        public async Task<TEntity> RemoveAsync(TEntity entity) // Hard Delete
         {
             Table.Remove(entity);
             // _dbContext.Entry(entity).State = EntityState.Deleted;
             return entity;
         }
 
-        public async Task<List<TEntity>> RemoveRange(List<TEntity> entities) // Hard Delete
+        public async Task<List<TEntity>> RemoveRangeAsync(List<TEntity> entities) // Hard Delete
         {
             Table.RemoveRange(entities);
             // _dbContext.Entry(entity).State = EntityState.Deleted;

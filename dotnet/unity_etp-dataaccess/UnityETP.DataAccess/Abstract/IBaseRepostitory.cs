@@ -8,48 +8,48 @@ namespace UnityETP.DataAccess.Abstract
     {
         IQueryable<TEntity> GetAll(bool isNotSelectSoftDelete = true);
 
-        Task<List<TEntity>> GetAllList(bool isNotSelectSoftDelete = true);
+        Task<List<TEntity>> GetAllListAsync(bool isNotSelectSoftDelete = true);
 
         IQueryable<TEntity> GetAllIncluding(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties);
 
-        Task<List<TEntity>> GetAllListIncluding(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties);
+        Task<List<TEntity>> GetAllListIncludingAsync(bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties);
 
         ValueTask<TEntity> Find(TPrimary id);
 
-        Task<TEntity> GetFrist(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
-        Task<TEntity> GetLast(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
         IQueryable<TEntity> FindAllBy(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
         IQueryable<TEntity> FindAllByInculding(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties);
 
-        Task<bool> Any(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
-        Task<bool> Alll(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<bool> AllAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
-        Task<int> Count(bool isNotSelectSoftDelete = true);
+        Task<int> CountAsync(bool isNotSelectSoftDelete = true);
 
-        Task<int> Count(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
-        Task<TEntity> Add(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
-        Task<List<TEntity>> AddRange(List<TEntity> entities);
+        Task<List<TEntity>> AddRangeAsync(List<TEntity> entities);
 
-        Task<TEntity> Update(TEntity entity);
+        Task<TEntity> UpdateAsync(TEntity entity);
 
-        Task<List<TEntity>> UpdateRange(List<TEntity> entities);
+        Task<List<TEntity>> UpdateRangeAsync(List<TEntity> entities);
 
-        Task<TEntity> Delete(TEntity entity); // Soft Delete
+        Task<TEntity> DeleteAsync(TEntity entity); // Soft Delete
 
-        Task<List<TEntity>> DeleteRange(List<TEntity> entities); // Soft Delete
+        Task<List<TEntity>> DeleteRangeAsync(List<TEntity> entities); // Soft Delete
 
-        Task<TEntity> DeleteById(TPrimary id);// Soft Delete
+        Task<TEntity> DeleteByIdAsync(TPrimary id);// Soft Delete
 
-        Task DeleteWhere(Expression<Func<TEntity, bool>> predicate); //Soft Delete
+        Task DeleteWhereAsync(Expression<Func<TEntity, bool>> predicate); //Soft Delete
 
-        Task<TEntity> Remove(TEntity entity); // Hard Delete
+        Task<TEntity> RemoveAsync(TEntity entity); // Hard Delete
 
-        Task<List<TEntity>> RemoveRange(List<TEntity> entities); // Hard Delete
+        Task<List<TEntity>> RemoveRangeAsync(List<TEntity> entities); // Hard Delete
     }
 }
