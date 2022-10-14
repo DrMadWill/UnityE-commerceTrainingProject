@@ -13,7 +13,7 @@ namespace UnityETP.DataAccess.DataHelper
     public class RepositoryBuilder
     {
         public static IBaseRepostitory<TEntity, TPrimary> Builder<TEntity, TPrimary>
-            (IBaseRepostitory<TEntity, TPrimary> repostitory, AppDbContext dbContext) where TEntity : BaseEntity<TPrimary>
+            (IBaseRepostitory<TEntity, TPrimary> repostitory, AppDbContext dbContext) where TEntity : class, IBaseEntity<TPrimary>
 
         {
             if (repostitory == null)
