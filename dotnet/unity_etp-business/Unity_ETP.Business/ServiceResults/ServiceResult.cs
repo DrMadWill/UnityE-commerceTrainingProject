@@ -12,5 +12,6 @@ namespace Unity_ETP.Business.ServiceResults
         public List<T> Results { get; set; }
         public string ErrorMsg { get; set; }
         public int ErrorCode { get; set; }
+        public bool IsSucceed { get; set; }
     }
 }

@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Unity_ETP.Business.Abstract.Blogs;
+using Unity_ETP.Business.ServiceResults;
 using UnityETP.DataAccess.Abstract;
 using UnityETP.Entity.Blogs;
 
 namespace Unity_ETP.Business.Concrete.Blogs
 {
-    public class BlogService : IBlogRepository
+    public class BlogService : IBlogService
     {
         readonly IUnitOfWork _unitOfWork;
 
@@ -18,17 +20,50 @@ namespace Unity_ETP.Business.Concrete.Blogs
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Blog> AddAsync(Blog entity)
+        public async Task<ServiceResult<Blog>> AddAsync(Blog entity)
         {
-            if (entity == null && entity.Detail == null) return null;
+            if (entity == null && entity.Detail == null) return new ServiceResult<Blog>
+            {
+                IsSucceed = false,
+                ErrorCode = 422,//HttpStatusCode.UnprocessableEntity
+                ErrorMsg = "Detail Not Found In Blog. Please Add Detail To Blog.",
+                Result = entity
+                
+            };
+
+            Blog result;
+            try
+            {
+                 result = await _unitOfWork.BlogRepostitory.AddAsync(entity);
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult<Blog>
+                {
+                    IsSucceed = false,
+                    ErrorCode = 500, // HttpStatusCode.InternalServerError
+                    ErrorMsg = ex.Message,
+                    Result = entity
+                };
+            }
             
-            await _unitOfWork.BlogRepostitory.Add(entity);
+            if(result == null) return new ServiceResult<Blog>
+            {
+                IsSucceed = false,
+                ErrorCode = 500, // HttpStatusCode.InternalServerError
+                ErrorMsg = "Blog Not Created.",
+                Result = entity
+            };
 
-
-
+            return new ServiceResult<Blog>
+            {
+                Result = result,
+                IsSucceed = true,
+                ErrorCode = 201,
+            };
         }
 
-        public Task<Blog> DeleteAsync(int id)
+        public Task<ServiceResult<Blog>> DeleteAsync(int id)
         {
             throw new NotImplementedException();
         }
@@ -48,7 +83,7 @@ namespace Unity_ETP.Business.Concrete.Blogs
             throw new NotImplementedException();
         }
 
-        public Task<Blog> UpdateAsync(Blog entity)
+        public Task<ServiceResult<Blog>> UpdateAsync(Blog entity)
         {
             throw new NotImplementedException();
         }
