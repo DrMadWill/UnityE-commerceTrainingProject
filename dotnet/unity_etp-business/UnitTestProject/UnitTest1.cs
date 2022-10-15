@@ -1,3 +1,11 @@
+using Unity_ETP.Business.Abstract;
+using Unity_ETP.Business.Concrete;
+using Unity_ETP.Business.Concrete.Blogs;
+using UnityETP.DataAccess.Abstract;
+using UnityETP.DataAccess.Concrete;
+using UnityETP.DataAccess.Concrete.MsSql;
+using UnityETP.Entity.Blogs;
+
 namespace UnitTestProject
 {
     public class Tests
@@ -5,13 +13,27 @@ namespace UnitTestProject
         [SetUp]
         public void Setup()
         {
-            Test1();
+            AppDbContext appDbContext = new AppDbContext();
+            IUnitOfWork unitOfWork = new UnitOfWork(appDbContext);
+            BaseSerice<Category, int> categoryService = new BaseSerice<Category, int>(unitOfWork);
+
+            var category = new Category
+            {
+                Name = "Travel",
+            };
+
+            // var result = blogService.AddAsync();
+
+            categoryService.AddAsync(category).Wait();
+           
+            Assert.Pass();
+            
         }
 
         [Test]
-        public void Test1()
+        public async Task Test1()
         {
-            Assert.Pass();
+           
         }
     }
 }

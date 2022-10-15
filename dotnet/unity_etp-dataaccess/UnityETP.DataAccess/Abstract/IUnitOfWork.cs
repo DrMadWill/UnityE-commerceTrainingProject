@@ -1,4 +1,5 @@
 ﻿
+using UnityETP.Entity;
 using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Contacts;
@@ -111,5 +112,12 @@ namespace UnityETP.DataAccess.Abstract
         #endregion
 
         #endregion
+
+        IBaseRepostitory<TEntity, TPrimary> Set<TEntity, TPrimary>()
+            where TEntity : class, IBaseEntity<TPrimary>;
+
+        Task Commit();
+
+       
     }
 }

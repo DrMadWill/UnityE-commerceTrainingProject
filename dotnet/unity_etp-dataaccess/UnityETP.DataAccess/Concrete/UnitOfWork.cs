@@ -1,6 +1,9 @@
-﻿using UnityETP.DataAccess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using UnityETP.DataAccess.Abstract;
 using UnityETP.DataAccess.Concrete.MsSql;
+using UnityETP.DataAccess.Concrete.Repositories;
 using UnityETP.DataAccess.DataHelper;
+using UnityETP.Entity;
 using UnityETP.Entity.Blogs;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Contacts;
@@ -27,6 +30,19 @@ namespace UnityETP.DataAccess.Concrete
         {
             await _dbContext.SaveChangesAsync();
         }
+
+        public IBaseRepostitory<TEntity, TPrimary> Set<TEntity, TPrimary>()
+            where TEntity : class,IBaseEntity<TPrimary>
+        {
+            //var et = typeof(TEntity);
+            //var ut = typeof(UnitOfWork);
+            //var searchProp= ut.GetProperties().FirstOrDefault(x => x.PropertyType.FullName.Contains(et.FullName));
+            //var resut = ut.GetProperty(searchProp.Name).GetValue(searchProp, null);
+            //return (EfGenericRepository<TEntity,TPrimary>)ut.GetProperty(searchProp.Name).GetValue(searchProp, null);
+            return new EfGenericRepository<TEntity, TPrimary>(_dbContext);
+        }
+
+
         #region Blog
         //
         public IBaseRepostitory<Blog, int> BlogRepostitory 
