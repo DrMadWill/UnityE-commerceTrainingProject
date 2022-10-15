@@ -29,7 +29,6 @@ namespace UnityETP.Entity.Validations
         public const int FaksLength = 30;
         public const int PhoneLength = 15;
 
-
         public const int ControllerMaxLength = 30;
         public const int ControllerMinLength = 2;
 

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Validations;
 
@@ -26,13 +21,12 @@ namespace UnityETP.Entity.Shippings
         [Column] public string Name { get; set; }
 
         // Relation
-        public Color Color { get; set; }
-
-        public int ColorId { get; set; }
 
         public Icon Icon { get; set; }
-
         public int IconId { get; set; }
+
+        public Color Color { get; set; }
+        public int ColorId { get; set; }
 
         public IList<Shipping> Shippings { get; set; }
     }

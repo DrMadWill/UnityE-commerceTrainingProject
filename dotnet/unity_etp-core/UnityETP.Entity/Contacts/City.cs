@@ -5,7 +5,7 @@ using UnityETP.Entity.Validations;
 namespace UnityETP.Entity.Contacts
 {
     /// <summary>
-    /// Address => City 
+    /// Address => City
     /// </summary>
     [Table("Cities")]
     public class City : BaseEntity<int>
@@ -16,9 +16,10 @@ namespace UnityETP.Entity.Contacts
         public override int Id { get; set; }
 
         [Required]
-        [StringLength(Limit.NameMaxLength,MinimumLength =Limit.NameMinLength)]  
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
-        // Relation 
+
+        // Relation
         public IList<Address> Addresses { get; set; }
     }
 }

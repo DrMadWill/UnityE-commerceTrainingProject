@@ -7,19 +7,20 @@ using UnityETP.Entity.Vendors.Orders;
 
 namespace UnityETP.Entity.Vendors
 {
+    [Table("Vendors")]
     public class Vendor : BaseEntity<int>
     {
-        [Key,ForeignKey("Organizations")]
+        [Key, ForeignKey("Organizations")]
         public override int Id { get; set; }
 
         [Column] public DateTime? OrganizationCreated { get; set; }
         [Column] public float Star { get; set; }
 
         // Relation
+        public Organization Organization { get; set; }
         public Color Color { get; set; }
         public int ColorId { get; set; }
         public IList<Prodcut> Prodcuts { get; set; }
-        public Organization Organization { get; set; }
         public IList<Order> VendorOrders { get; set; }
     }
 }

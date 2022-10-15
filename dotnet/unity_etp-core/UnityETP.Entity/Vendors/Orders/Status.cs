@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityETP.Entity.Commons;
 using UnityETP.Entity.Validations;
 
@@ -25,8 +20,9 @@ namespace UnityETP.Entity.Vendors.Orders
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
-        // Region 
+        // Region
         public Color Color { get; set; }
+
         public int ColorId { get; set; }
 
         public IList<Order> VendorOrders { get; set; }

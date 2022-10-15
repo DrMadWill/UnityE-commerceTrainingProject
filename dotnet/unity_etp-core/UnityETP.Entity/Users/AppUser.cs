@@ -15,15 +15,18 @@ namespace UnityETP.Entity.Users
     {
         [RegularExpression(RegEx.Email, ErrorMessage = "Email format not valid.")]
         [Column] public override string Email { get; set; }
+
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string SureName { get; set; }
 
         [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
+
         [Column] public decimal Amount { get; set; }
         [Column] public bool IsSucScribe { get; set; }
         [Column(TypeName = Validations.Type.Byte)] public byte Age { get; set; }
@@ -32,15 +35,15 @@ namespace UnityETP.Entity.Users
         [Column] public DateTime? UpdateAt { get; set; }
         [Column] public bool IsBlock { get; set; } = false;
         [Column] public bool IsDelete { get; set; } = false;
-        
+
         // Relation
         public Status UserStatus { get; set; }
+
         public int UserStatusId { get; set; }
         public IList<Blog> Blogs { get; set; }
         public IList<Comment> Comments { get; set; }
         public IList<Order> UserOrders { get; set; }
         public IList<Review> Reviews { get; set; }
         public IList<ProductCreatingLog> ProductCreatingLogs { get; set; }
-
     }
 }

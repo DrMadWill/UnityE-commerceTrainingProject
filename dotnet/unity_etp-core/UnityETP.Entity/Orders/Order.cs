@@ -6,7 +6,7 @@ using UnityETP.Entity.Users;
 namespace UnityETP.Entity.Orders
 {
     /// <summary>
-    /// Orders 
+    /// Orders
     /// </summary>
     [Table("UserOrders")]
     public class Order : BaseEntity<int>
@@ -20,6 +20,7 @@ namespace UnityETP.Entity.Orders
 
         // Relation
         public Status Status { get; set; }
+
         public int StatusId { get; set; }
         public Payment Payment { get; set; }
         public int PaymentId { get; set; }

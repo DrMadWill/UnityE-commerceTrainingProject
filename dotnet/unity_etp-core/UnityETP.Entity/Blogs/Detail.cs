@@ -8,17 +8,18 @@ namespace UnityETP.Entity.Blogs
     /// Blog Detail  Table
     /// </summary>
 
-    [Table("BlogDetail")]
+    [Table("BlogDetails")]
     public class Detail : BaseEntity<int>
     {
-        [Key,ForeignKey("Blogs")]
+        [Key, ForeignKey("Blogs")]
         [Column]
         public override int Id { get; set; }
 
         [Required]
         [MinLength(Limit.MinLenght)]
         [Column(TypeName = Validations.Type.Text)] public string Description { get; set; }
-        // Relation 
+
+        // Relation
         public Blog Blog { get; set; }
     }
 }

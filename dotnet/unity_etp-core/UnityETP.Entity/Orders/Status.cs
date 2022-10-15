@@ -20,8 +20,9 @@ namespace UnityETP.Entity.Orders
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
 
-        // Region 
+        // Region
         public Color Color { get; set; }
+
         public int ColorId { get; set; }
 
         public IList<Order> UserOrders { get; set; }

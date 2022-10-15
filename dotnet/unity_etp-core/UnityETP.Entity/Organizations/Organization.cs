@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Contacts;
-using UnityETP.Entity.Shipings;
+using UnityETP.Entity.Shippings;
 using UnityETP.Entity.Validations;
 using UnityETP.Entity.Vendors;
 
@@ -17,16 +17,23 @@ namespace UnityETP.Entity.Organizations
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [Column(TypeName = Validations.Type.Text)] public string Description { get; set; }
         [Column] public string HotTel { get; set; }
+
         [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
 
         // Relation
 
+        public Vendor Vendor { get; set; }
+
+        public Organizations.Type OrganizationTypes { get; set; }
+        public int OrganizationTypeId { get; set; }
         public Status Status { get; set; }
         public int StatusId { get; set; }
 

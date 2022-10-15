@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using UnityETP.Entity.Options;
 
 namespace UnityETP.Entity.Users
@@ -7,8 +8,12 @@ namespace UnityETP.Entity.Users
     /// Authorizations Table
     /// </summary>
     [Table("UserAuthorizations")]
-    public class Authorization
+    public class Authorization:BaseEntity<int>
     {
+        [Key]
+        [Column]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public override int Id { get; set; }
         public AppRole AppRole { get; set; }
         public string AppRoleId { get; set; }
 

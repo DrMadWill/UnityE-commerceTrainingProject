@@ -6,7 +6,7 @@ using UnityETP.Entity.Validations;
 namespace UnityETP.Entity.Contacts
 {
     /// <summary>
-    /// Online Contact Info  
+    /// Online Contact Info
     /// </summary>
     [Table("OnlineAddresses")]
     public class OnlineAddress : BaseEntity<int>
@@ -15,16 +15,24 @@ namespace UnityETP.Entity.Contacts
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+
         [Required]
-        [StringLength(Limit.NameMaxLength,MinimumLength = Limit.NameMinLength)]
+        [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [StringLength(Limit.LinkLength)]
         [Column] public string Link { get; set; }
+
         [Column] public bool IsSecurity { get; set; }
 
-        // Relation 
+        // Relation
         public Icon Icon { get; set; }
+
         public int IconId { get; set; }
+
+        public Color Color { get; set; }
+        public int ColorId { get; set; }
+
         public Contact Contact { get; set; }
         public int ContactId { get; set; }
     }

@@ -18,10 +18,13 @@ namespace UnityETP.Entity.Products
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
+
         [StringLength(Limit.ImageMaxLength)]
         [Column] public string Image { get; set; }
+
         // Relation
         public Category Category { get; set; }
+
         public int CategoryId { get; set; }
 
         public IList<Prodcut> Prodcuts { get; set; }

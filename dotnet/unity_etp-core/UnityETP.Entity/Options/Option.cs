@@ -16,6 +16,7 @@ namespace UnityETP.Entity.Options
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
@@ -27,11 +28,14 @@ namespace UnityETP.Entity.Options
         [Required]
         [StringLength(Limit.ActionMaxLength, MinimumLength = Limit.ActionMinLength)]
         [Column] public string Action { get; set; }
+
         // Relation
 
         public Icon Icon { get; set; }
         public int IconId { get; set; }
 
+        public Color Color { get; set; }
+        public int ColorId { get; set; }
         public IList<Item> Items { get; set; }
         public IList<Authorization> Authorizations { get; set; }
     }

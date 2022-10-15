@@ -17,11 +17,12 @@ namespace UnityETP.Entity.Organizations
         public override int Id { get; set; }
 
         [Required]
-        [StringLength(Limit.NameMaxLength*2, MinimumLength = Limit.NameMinLength)]
+        [StringLength(Limit.NameMaxLength * 2, MinimumLength = Limit.NameMinLength)]
         [Column] public string FullName { get; set; }
-        
+
         // Relation
         public Organization Organization { get; set; }
+
         public int OrganizationId { get; set; }
 
         public Position Position { get; set; }

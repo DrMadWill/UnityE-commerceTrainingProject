@@ -14,11 +14,13 @@ namespace UnityETP.Entity.Products
         [Column]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
+
         // Relation
         public Prodcut Prodcut { get; set; }
+
         public int ProductId { get; set; }
-        
+
         public AppUser User { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

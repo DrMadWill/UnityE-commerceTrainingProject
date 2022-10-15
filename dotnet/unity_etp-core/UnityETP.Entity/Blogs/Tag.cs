@@ -5,7 +5,7 @@ using UnityETP.Entity.Validations;
 namespace UnityETP.Entity.Blogs
 {
     /// <summary>
-    /// Blog Tags Table 
+    /// Blog Tags Table
     /// </summary>
     [Table("BlogTags")]
     public class Tag : BaseEntity<int>
@@ -18,7 +18,8 @@ namespace UnityETP.Entity.Blogs
         [Required]
         [StringLength(Limit.NameMaxLength, MinimumLength = Limit.NameMinLength)]
         [Column] public string Name { get; set; }
-        // Relation 
+
+        // Relation
         public IList<BlogToTag> BlogToTags { get; set; }
     }
 }

@@ -26,10 +26,12 @@ namespace UnityETP.Entity.Options
         [Required]
         [StringLength(Limit.ActionMaxLength, MinimumLength = Limit.ActionMinLength)]
         [Column] public string Action { get; set; }
+
         [Column] public bool IsSafe { get; set; }
 
         // Relation
         public Option Option { get; set; }
+
         public int OptionId { get; set; }
     }
 }

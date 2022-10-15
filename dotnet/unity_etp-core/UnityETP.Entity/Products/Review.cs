@@ -20,6 +20,7 @@ namespace UnityETP.Entity.Products
 
         // Relations
         public Prodcut Prodcut { get; set; }
+
         public int ProductId { get; set; }
 
         public AppUser User { get; set; }

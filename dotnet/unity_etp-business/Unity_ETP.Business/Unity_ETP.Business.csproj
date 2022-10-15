@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj" />
+    <ProjectReference Include="..\..\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BusinessHelpers\" />
+  </ItemGroup>
+
+</Project>
