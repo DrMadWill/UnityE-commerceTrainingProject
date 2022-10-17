@@ -34,31 +34,41 @@ namespace UnityETP.DataAccess.Concrete
         public IBaseRepostitory<TEntity, TPrimary> Set<TEntity, TPrimary>()
             where TEntity : class,IBaseEntity<TPrimary>
         {
-            //var et = typeof(TEntity);
-            //var ut = typeof(UnitOfWork);
-            //var searchProp= ut.GetProperties().FirstOrDefault(x => x.PropertyType.FullName.Contains(et.FullName));
+            var et = typeof(TEntity);
+            var ut = typeof(UnitOfWork);
+            var searchProp = ut.GetFields().FirstOrDefault(x => x.FieldType.FullName.Contains(et.FullName));
             //var resut = ut.GetProperty(searchProp.Name).GetValue(searchProp, null);
             //return (EfGenericRepository<TEntity,TPrimary>)ut.GetProperty(searchProp.Name).GetValue(searchProp, null);
-            return new EfGenericRepository<TEntity, TPrimary>(_dbContext);
+            var result = GetType().GetField(searchProp.Name).GetValue(this);
+            
+            
+            return (EfGenericRepository<TEntity, TPrimary>)result;
         }
 
 
         #region Blog
         //
+        private IBaseRepostitory<Blog, int> _BlogRepostitory;
         public IBaseRepostitory<Blog, int> BlogRepostitory 
         {
-            get => RepositoryBuilder.Builder(BlogRepostitory, _dbContext);
-            set => BlogRepostitory = value;
+            get => RepositoryBuilder.Builder(_BlogRepostitory, _dbContext);
+            set => _BlogRepostitory = value;
         }
         public IBaseRepostitory<BlogToTag, int> BlogToTagRepostitory
         {
             get => RepositoryBuilder.Builder(BlogToTagRepostitory, _dbContext);
             set => BlogToTagRepostitory = value;
         }
+
+        private IBaseRepostitory<Entity.Blogs.Category, int> _blogCategoryRepostitory;
         public IBaseRepostitory<Entity.Blogs.Category, int> BlogCategoryRepostitory
         {
-            get => RepositoryBuilder.Builder(BlogCategoryRepostitory, _dbContext);
-            set => BlogCategoryRepostitory = value;
+            get 
+            { 
+                _blogCategoryRepostitory = RepositoryBuilder.Builder(_blogCategoryRepostitory, _dbContext); 
+                return _blogCategoryRepostitory;
+            } //RepositoryBuilder.Builder(BlogCategoryRepostitory, _dbContext);
+            set => _blogCategoryRepostitory = value;
         }
         public IBaseRepostitory<Comment, int> BlogCommentRepostitory
         {

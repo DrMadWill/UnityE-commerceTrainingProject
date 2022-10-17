@@ -113,7 +113,7 @@ namespace UnityETP.DataAccess.Abstract
 
         #endregion
 
-        IBaseRepostitory<TEntity, TPrimary> Set<TEntity, TPrimary>()
+        IBaseRepostitory<TEntity, TPrimary> Set<TEntity, TPrimary>(IUnitOfWork unitOfWork)
             where TEntity : class, IBaseEntity<TPrimary>;
 
         Task Commit();

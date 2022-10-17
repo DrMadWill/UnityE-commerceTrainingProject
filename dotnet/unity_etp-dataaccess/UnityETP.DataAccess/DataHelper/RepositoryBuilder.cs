@@ -16,10 +16,7 @@ namespace UnityETP.DataAccess.DataHelper
             (IBaseRepostitory<TEntity, TPrimary> repostitory, AppDbContext dbContext) where TEntity : class, IBaseEntity<TPrimary>
 
         {
-            if (repostitory == null)
-            {
-                repostitory = new EfGenericRepository<TEntity, TPrimary>(dbContext);
-            }
+            repostitory ??= new EfGenericRepository<TEntity, TPrimary>(dbContext);
             return repostitory;
         }
     }
