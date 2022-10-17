@@ -56,14 +56,14 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return query.Where(predicate);
         }
 
-        public async Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true)
         {
-            return await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync(predicate);
+            return predicate != null ? await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync(predicate) : await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync();
         }
 
-        public async Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true)
         {
-            return await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync(predicate);
+            return predicate != null ? await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync(predicate) : await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync();
         }
 
         public async Task<bool> AllAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)

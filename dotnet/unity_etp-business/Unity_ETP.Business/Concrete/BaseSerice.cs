@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +16,11 @@ namespace Unity_ETP.Business.Concrete
         where TEntity : class, IBaseEntity<TPrimary>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IBaseRepostitory<TEntity,TPrimary> _currentRepostitory;
         public BaseSerice(IUnitOfWork unitOfWork)
         {
             _unitOfWork= unitOfWork;
+            _currentRepostitory = _unitOfWork.Set<TEntity, TPrimary>();
         }
 
         public async Task<ServiceResult<TEntity>> AddAsync(TEntity entity)
@@ -32,7 +35,7 @@ namespace Unity_ETP.Business.Concrete
             TEntity result = null;
             try
             {
-                result = await _unitOfWork.Set<TEntity, TPrimary>().AddAsync(entity);
+                result = await _currentRepostitory.AddAsync(entity);
                 await _unitOfWork.Commit();
             }
             catch (Exception ex)
@@ -62,29 +65,70 @@ namespace Unity_ETP.Business.Concrete
             };
         }
 
-        public Task<ServiceResult<TEntity>> DeleteAsync(TPrimary id)
+        public async Task<ServiceResult<TEntity>> DeleteAsync(TPrimary id)
         {
-            throw new NotImplementedException();
+            if(id == null) return new ServiceResult<TEntity>
+            {
+                IsSucceed = false,
+                ErrorCode = 422,  //HttpStatusCode.UnprocessableEntity
+                ErrorMsg = "Entity is null."
+            };
+
+            var deleteItem = await _currentRepostitory.DeleteByIdAsync(id);
+            if (deleteItem == null) return new ServiceResult<TEntity>
+            {
+                IsSucceed = false,
+                ErrorCode = 500,  //HttpStatusCode.UnprocessableEntity
+                ErrorMsg = "Result is null."
+            };
+
+            return new ServiceResult<TEntity>
+            {
+                Result = deleteItem,
+                IsSucceed = true,
+            };
         }
 
-        public Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete = false)
+        public async Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete = false)
         {
-            throw new NotImplementedException();
+            return await _currentRepostitory.GetAllListAsync(isNotSelecedDelete);
         }
 
-        public Task<TEntity> GetAsync(bool isFrist = true, bool isNotSelecedDelete = false)
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, bool isFrist = true, bool isNotSelecedDelete = false)
         {
-            throw new NotImplementedException();
+            return isFrist ? await _currentRepostitory.GetFristAsync(predicate): await _currentRepostitory.GetLastAsync(predicate);
         }
 
-        public Task<bool> IsFoundDataBase(TPrimary id)
+        public async Task<bool> IsFoundDataBase(TPrimary id)
         {
-            throw new NotImplementedException();
+            return await _currentRepostitory.AnyAsync(e => e.Id.Equals(id));
         }
 
-        public Task<ServiceResult<TEntity>> UpdateAsync(TEntity entity)
+        public async Task<ServiceResult<TEntity>> UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            if(entity == null) return new ServiceResult<TEntity>
+            {
+                IsSucceed = false,
+                ErrorCode = 422,  //HttpStatusCode.UnprocessableEntity
+                ErrorMsg = "Entity is null."
+            };
+
+
+
+            var updateItem = await _currentRepostitory.UpdateAsync(entity);
+            if(updateItem == null) return new ServiceResult<TEntity>
+            {
+                IsSucceed = false,
+                ErrorCode = 500,  //HttpStatusCode.UnprocessableEntity
+                ErrorMsg = "Entity Not Found."
+            };
+
+            return new ServiceResult<TEntity>
+            {
+                Result = updateItem,
+                IsSucceed = true,
+            };
+
         }
     }
 }

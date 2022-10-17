@@ -16,9 +16,9 @@ namespace UnityETP.DataAccess.Abstract
 
         ValueTask<TEntity> Find(TPrimary id);
 
-        Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true);
 
-        Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
+        Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true);
 
         IQueryable<TEntity> FindAllBy(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true);
 
