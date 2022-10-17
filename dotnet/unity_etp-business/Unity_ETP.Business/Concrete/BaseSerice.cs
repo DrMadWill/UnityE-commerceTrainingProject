@@ -32,7 +32,7 @@ namespace Unity_ETP.Business.Concrete
             TEntity result = null;
             try
             {
-                result = await _unitOfWork.Set<TEntity, TPrimary>(_unitOfWork).AddAsync(entity);
+                result = await _unitOfWork.Set<TEntity, TPrimary>().AddAsync(entity);
                 await _unitOfWork.Commit();
             }
             catch (Exception ex)
