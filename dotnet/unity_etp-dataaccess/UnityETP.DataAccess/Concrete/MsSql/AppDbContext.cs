@@ -156,6 +156,116 @@ namespace UnityETP.DataAccess.Concrete.MsSql
         {
             base.OnModelCreating(builder);
 
+            #region Indexs
+
+            #region Unique
+
+            builder.Entity<Entity.Blogs.Category>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Blogs.Tag>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<Color>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+            builder.Entity<Color>()
+                .HasIndex(x => x.Code)
+                .IsUnique();
+
+
+            builder.Entity<Icon>()
+                .HasIndex(x => x.Code)
+                .IsUnique();
+            builder.Entity<Icon>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<SucScribe>()
+                .HasIndex(x => x.Email)
+                .IsUnique();
+
+            builder.Entity<Country>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+            builder.Entity<Region>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+            builder.Entity<City>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<Option>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<Entity.Orders.Status>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<Entity.Organizations.Status>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+
+            builder.Entity<Entity.Organizations.Type>()
+                .HasIndex(x => x.Name)
+                .IsUnique();
+            builder.Entity<Entity.Organizations.Position>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+
+            builder.Entity<Entity.Payments.Type>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+
+            builder.Entity<Entity.Products.Brand>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.Type>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.Category>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.SubCategory>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.Size>()
+               .HasIndex(x => x.Calibre)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.Status>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Products.Tag>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Shippings.Status>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Users.Status>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+
+            builder.Entity<Entity.Vendors.Orders.Status>()
+               .HasIndex(x => x.Name)
+               .IsUnique();
+            #endregion
+
+
+            #endregion
+
             #region Relation
             /// <summary>
             /// One To Many => #OM  
