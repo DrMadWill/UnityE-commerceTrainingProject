@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
       <PrivateAssets>all</PrivateAssets>
@@ -18,12 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\dotnet\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj" />
-    <ProjectReference Include="..\..\..\dotnet\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj" />
+    <Folder Include="Foders\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Foders\" />
+    <ProjectReference Include="..\..\..\dotnet\unity_etp-business\Unity_ETP.Business\Unity_ETP.Business.csproj" />
+    <ProjectReference Include="..\..\..\dotnet\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj" />
+    <ProjectReference Include="..\..\..\dotnet\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.API", "UnityETP.API\UnityETP.API.csproj", "{82E9A320-CD3A-4449-8FF4-FF9D92DAAAB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.Entity", "..\..\dotnet\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj", "{8100A46B-4A0C-4693-A367-921BF314DB6C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.Entity", "..\..\dotnet\unity_etp-core\UnityETP.Entity\UnityETP.Entity.csproj", "{2C04BE6A-B08A-4735-952A-2EE4A68F72AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.DataAccess", "..\..\dotnet\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj", "{BAD69404-D294-4627-9EFE-32078EA7A479}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.DataAccess", "..\..\dotnet\unity_etp-dataaccess\UnityETP.DataAccess\UnityETP.DataAccess.csproj", "{F24DB514-560B-46E9-BE0F-D0921622E7B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_ETP.Business", "..\..\dotnet\unity_etp-business\Unity_ETP.Business\Unity_ETP.Business.csproj", "{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.API", "UnityETP.API\UnityETP.API.csproj", "{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82E9A320-CD3A-4449-8FF4-FF9D92DAAAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82E9A320-CD3A-4449-8FF4-FF9D92DAAAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82E9A320-CD3A-4449-8FF4-FF9D92DAAAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82E9A320-CD3A-4449-8FF4-FF9D92DAAAB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2C04BE6A-B08A-4735-952A-2EE4A68F72AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C04BE6A-B08A-4735-952A-2EE4A68F72AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C04BE6A-B08A-4735-952A-2EE4A68F72AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C04BE6A-B08A-4735-952A-2EE4A68F72AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F24DB514-560B-46E9-BE0F-D0921622E7B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F24DB514-560B-46E9-BE0F-D0921622E7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F24DB514-560B-46E9-BE0F-D0921622E7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F24DB514-560B-46E9-BE0F-D0921622E7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8100A46B-4A0C-4693-A367-921BF314DB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8100A46B-4A0C-4693-A367-921BF314DB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8100A46B-4A0C-4693-A367-921BF314DB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8100A46B-4A0C-4693-A367-921BF314DB6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD69404-D294-4627-9EFE-32078EA7A479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD69404-D294-4627-9EFE-32078EA7A479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD69404-D294-4627-9EFE-32078EA7A479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD69404-D294-4627-9EFE-32078EA7A479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +75,11 @@ namespace Unity_ETP.Business.Concrete.Blogs
         }
 
         public Task<Blog> GetAsync(bool isFrist = true, bool isNotSelecedDelete = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Blog> GetAsync(Expression<Func<Blog, bool>> predicate, bool isFrist = true, bool isNotSelecedDelete = false)
         {
             throw new NotImplementedException();
         }
