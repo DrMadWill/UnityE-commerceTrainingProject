@@ -12,11 +12,11 @@ namespace Unity_ETP.Business.Abstract
     public  interface IBaseService<TEntity,TPrimary> 
         where TEntity : IBaseEntity<TPrimary>
     {
-        Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete=false);
+        Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete=true);
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, bool isFrist = true, bool isNotSelecedDelete = false);
         Task<ServiceResult<TEntity>> AddAsync(TEntity entity);
         Task<ServiceResult<TEntity>> UpdateAsync(TEntity entity);
-        Task<ServiceResult<TEntity>> DeleteAsync(TPrimary id);
+        Task<ServiceResult<TEntity>> DeleteAsync(TPrimary? id);
         Task<bool> IsFoundDataBase(TPrimary id);
     }
 }

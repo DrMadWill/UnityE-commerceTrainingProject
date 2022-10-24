@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.WebEncoders;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
@@ -20,7 +21,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c => new OpenApiInfo
+{
+    Version = "v1",
+    Title = "Unity E-commerce Api",
+    Description = "Unity E-commerce",
+    TermsOfService = new Uri("https://github.com/DrMadWill/RepositoryPattern"),
+    Contact = new OpenApiContact
+    {
+        Name = "Nofel Salahov (DR Mad Will)",
+        Email = "nofelsalahov9@gmail.com",
+        Url = new Uri("https://www.linkedin.com/in/drmadwill/")
+    }
+});
 var dbconnection = builder.Configuration.GetConnectionString("Local");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -30,6 +43,7 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.RegisterAppServices();
 
 var issuer = builder.Configuration["Jwt:Issuer"];
 var audience = builder.Configuration["Jwt:ValidAudience"];
@@ -49,21 +63,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequireDigit = true;
-    options.Password.RequiredLength = 6;
+    options.Password.RequiredLength = 8;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
     options.Lockout.MaxFailedAccessAttempts = 10;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(30);
 });
 builder.Services.Configure<PasswordHasherOptions>(option => { option.IterationCount = 12000; });
 
-builder.Services.AddOptions<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme)
-    .Configure<ITicketStore>((options, store) => {
-        options.Cookie.HttpOnly = true;
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-        options.SessionStore = store;
-    });
 
 builder.Services.Configure<WebEncoderOptions>(options =>
 {
@@ -104,11 +112,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Repository Pattern API V1");
+    });
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

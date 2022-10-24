@@ -15,9 +15,9 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 {
     public class AppDbContext : IdentityDbContext
     {
-        //public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        //{
-        //}
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
         #region Sql Function
         //ALTER FUNCTION IsUniqBlogToTagCONSTRAINT(@BlogId int, @TagId int)
@@ -146,11 +146,11 @@ namespace UnityETP.DataAccess.Concrete.MsSql
 
         #endregion
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=Will;Initial Catalog=Unity_Ecommerce;Integrated Security=SSPI;MultipleActiveResultSets=True");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer("Data Source=Will;Initial Catalog=Unity_Ecommerce;Integrated Security=SSPI;MultipleActiveResultSets=True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -44,7 +44,7 @@ namespace Unity_ETP.Business.Concrete
                 {
                     IsSucceed = false,
                     ErrorCode = 500,
-                    ErrorMsg = ex.Message,
+                    ErrorMsg = "Data Not Saved.",
                     Result = entity
                 };
             }
@@ -73,8 +73,23 @@ namespace Unity_ETP.Business.Concrete
                 ErrorCode = 422,  //HttpStatusCode.UnprocessableEntity
                 ErrorMsg = "Entity is null."
             };
+            TEntity deleteItem;
+            try
+            {
+                deleteItem = await _currentRepostitory.DeleteByIdAsync(id);
+                await _unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
 
-            var deleteItem = await _currentRepostitory.DeleteByIdAsync(id);
+                return new ServiceResult<TEntity>
+                {
+                    IsSucceed = false,
+                    ErrorCode = 500,  //HttpStatusCode.UnprocessableEntity
+                    ErrorMsg = "Data Not Saved."
+                };
+            }
+
             if (deleteItem == null) return new ServiceResult<TEntity>
             {
                 IsSucceed = false,
@@ -101,6 +116,7 @@ namespace Unity_ETP.Business.Concrete
 
         public async Task<bool> IsFoundDataBase(TPrimary id)
         {
+            if (id == null) return false;
             return await _currentRepostitory.AnyAsync(e => e.Id.Equals(id));
         }
 
@@ -113,9 +129,22 @@ namespace Unity_ETP.Business.Concrete
                 ErrorMsg = "Entity is null."
             };
 
+            TEntity updateItem;
+            try
+            {
+                updateItem = await _currentRepostitory.UpdateAsync(entity);
+                await _unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
 
-
-            var updateItem = await _currentRepostitory.UpdateAsync(entity);
+                return new ServiceResult<TEntity>
+                {
+                    IsSucceed = false,
+                    ErrorCode = 500,  //HttpStatusCode.UnprocessableEntity
+                    ErrorMsg = "Data Not Saved."
+                };
+            }
             if(updateItem == null) return new ServiceResult<TEntity>
             {
                 IsSucceed = false,
@@ -128,7 +157,7 @@ namespace Unity_ETP.Business.Concrete
                 Result = updateItem,
                 IsSucceed = true,
             };
-
+            
         }
     }
 }

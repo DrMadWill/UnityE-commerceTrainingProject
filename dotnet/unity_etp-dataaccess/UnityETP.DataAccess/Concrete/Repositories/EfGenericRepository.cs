@@ -56,14 +56,19 @@ namespace UnityETP.DataAccess.Concrete.Repositories
             return query.Where(predicate);
         }
 
-        public async Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetFristAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return predicate != null ? await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync(predicate) : await GetAll(isNotSelectSoftDelete).FirstOrDefaultAsync();
+            var query = GetAll(isNotSelectSoftDelete);
+            query = BindIncludeProperties(query, includeProperties);
+            return predicate != null ? await query.FirstOrDefaultAsync(predicate) : await query
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true)
+        public async Task<TEntity> GetLastAsync(Expression<Func<TEntity, bool>> predicate = null, bool isNotSelectSoftDelete = true, params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return predicate != null ? await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync(predicate) : await GetAll(isNotSelectSoftDelete).LastOrDefaultAsync();
+            var query = GetAll(isNotSelectSoftDelete);
+            query = BindIncludeProperties(query, includeProperties);
+            return predicate != null ? await query.LastOrDefaultAsync(predicate) : await query.LastOrDefaultAsync();
         }
 
         public async Task<bool> AllAsync(Expression<Func<TEntity, bool>> predicate, bool isNotSelectSoftDelete = true)
