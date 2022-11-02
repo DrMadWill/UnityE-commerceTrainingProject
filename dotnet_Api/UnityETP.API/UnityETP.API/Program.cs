@@ -87,14 +87,14 @@ builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-// 150 MB
+
 const int maxRequestLimit = 157286400;
-// If using IIS
+
 builder.Services.Configure<IISServerOptions>(options =>
 {
     options.MaxRequestBodySize = maxRequestLimit;
 });
-// If using Kestrel
+
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
     options.Limits.MaxRequestBodySize = maxRequestLimit;
