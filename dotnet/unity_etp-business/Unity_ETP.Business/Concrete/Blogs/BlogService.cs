@@ -97,7 +97,7 @@ namespace Unity_ETP.Business.Concrete.Blogs
             return isFrist ? await _unitOfWork.BlogRepostitory.GetFristAsync(null, isNotSelecedDelete, x => x.Detail) : await _unitOfWork.BlogRepostitory.GetLastAsync(null,isNotSelecedDelete, x => x.Detail) ;
         }
 
-        public async Task<Blog> GetAsync(Expression<Func<Blog, bool>> predicate, bool isFrist = true, bool isNotSelecedDelete = false)
+        public async Task<Blog> GetAsync(Expression<Func<Blog, bool>> predicate, bool isFrist = true, bool isNotSelecedDelete = true)
         {
             if (predicate != null)
                 return isFrist ? await _unitOfWork.BlogRepostitory.GetFristAsync(predicate, isNotSelecedDelete,x=>x.Detail) : await _unitOfWork.BlogRepostitory.GetLastAsync(predicate, isNotSelecedDelete, x => x.Detail);

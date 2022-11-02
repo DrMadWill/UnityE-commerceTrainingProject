@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Unity_ETP.Business.Abstract;
+using Unity_ETP.Business.Abstract.Blogs;
 using UnityETP.Entity.Blogs;
 
 namespace UnityETP.API.Controllers.Blogs
@@ -9,9 +10,9 @@ namespace UnityETP.API.Controllers.Blogs
     [ApiController]
     public class BlogsController : ControllerBase
     {
-        private readonly IBaseService<Blog, int> _blogService;
+        private readonly IBlogService _blogService;
 
-        public BlogsController(IBaseService<Blog, int> blogService)
+        public BlogsController(IBlogService blogService)
         {
             _blogService = blogService;
         }
@@ -33,7 +34,14 @@ namespace UnityETP.API.Controllers.Blogs
             return Ok(result);
         }
 
-
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] Blog blog)
+        {
+            if (!ModelState.IsValid) return StatusCode(StatusCodes.Status422UnprocessableEntity);
+            var result = _blogService.AddAsync(blog);
+            if (result == null) return StatusCode(StatusCodes.Status500InternalServerError);
+            return Ok(result);
+        }
 
     }
 }

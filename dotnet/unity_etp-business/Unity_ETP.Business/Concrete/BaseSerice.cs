@@ -104,7 +104,7 @@ namespace Unity_ETP.Business.Concrete
             };
         }
 
-        public async Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete = false)
+        public async Task<IList<TEntity>> GetAllAsync(bool isNotSelecedDelete = true)
         {
             return await _currentRepostitory.GetAllListAsync(isNotSelecedDelete);
         }
