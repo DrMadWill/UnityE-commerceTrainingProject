@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Unity_ETP.Business.Abstract;
+﻿using Microsoft.AspNetCore.Mvc;
 using Unity_ETP.Business.Abstract.Blogs;
+using UnityETP.API.Models.ResultModels;
 using UnityETP.Entity.Blogs;
 
 namespace UnityETP.API.Controllers.Blogs
@@ -20,7 +19,7 @@ namespace UnityETP.API.Controllers.Blogs
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var result  = await _blogService.GetAllAsync();
+            var result = await _blogService.GetAllAsync();
             return Ok(result);
         }
 
@@ -43,5 +42,23 @@ namespace UnityETP.API.Controllers.Blogs
             return Ok(result);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] Blog blog)
+        {
+            if (blog == null) return StatusCode(StatusCodes.Status422UnprocessableEntity);
+            var result = await _blogService.UpdateAsync(blog);
+            if (result?.IsSucceed == true) return Ok(result);
+            else return Ok(new Error { Status = result?.ErrorCode, Message = result?.ErrorMsg });
+        }
+
+        [HttpDelete]
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return StatusCode(StatusCodes.Status422UnprocessableEntity);
+            var result = await _blogService.DeleteAsync(id ?? 0);
+            if (result != null) return Ok(result);
+            else return Ok(new Error { Status = result?.ErrorCode, Message = result?.ErrorMsg });
+        }
     }
 }
