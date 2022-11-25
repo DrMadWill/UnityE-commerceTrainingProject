@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity_ETP.Business", "..\..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityETP.API", "UnityETP.API\UnityETP.API.csproj", "{35D6B1EA-0BD1-48B1-A512-1BB2396726C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C3295629-F660-451C-86FB-E879160F439B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8100A46B-4A0C-4693-A367-921BF314DB6C} = {C3295629-F660-451C-86FB-E879160F439B}
+		{BAD69404-D294-4627-9EFE-32078EA7A479} = {C3295629-F660-451C-86FB-E879160F439B}
+		{1EFEFE8A-B2C1-443C-83DF-171DD9811D5F} = {C3295629-F660-451C-86FB-E879160F439B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5732914-EC50-41CC-A772-9F04F71DDA2E}
